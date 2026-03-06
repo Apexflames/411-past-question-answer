@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSC 411 — Complete Answer Guide | AAUA 2024/2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0f172a;--dark:#1e3a5f;--mid:#2563eb;--light:#bfdbfe;--xlight:#eff6ff;
+  --g:#166534;--gl:#dcfce7;--gb:#22c55e;
+  --y:#854d0e;--yl:#fef9c3;--yb:#eab308;
+  --o:#9a3412;--ol:#fff7ed;--ob:#f97316;
+  --p:#6b21a8;--pl:#f3e8ff;--pb:#a855f7;
+  --r:#991b1b;--rl:#fef2f2;--rb:#ef4444;
+  --t:#134e4a;--tl:#f0fdfa;--tb:#14b8a6;
+  --i:#312e81;--il:#eef2ff;--ib:#6366f1;
+  --line:#e2e8f0;--sh:0 4px 28px rgba(15,23,42,.10);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Source Sans 3',sans-serif;font-size:14.5px;line-height:1.75;color:var(--ink);background:#f0f4f8}
+.shell{max-width:920px;margin:0 auto;padding:0 0 60px}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:300;background:var(--dark);display:flex;align-items:stretch;overflow-x:auto;scrollbar-width:none;box-shadow:0 3px 24px rgba(0,0,0,.4)}
+.nav::-webkit-scrollbar{display:none}
+.nbrand{display:flex;align-items:center;gap:9px;padding:0 16px 0 14px;border-right:1px solid rgba(255,255,255,.1);flex-shrink:0}
+.nbrand .pill{background:var(--mid);color:#fff;font-size:10px;font-weight:700;letter-spacing:.1em;padding:3px 9px;border-radius:4px}
+.nbrand span{color:rgba(255,255,255,.5);font-size:10px}
+.nav a{color:rgba(255,255,255,.6);text-decoration:none;font-size:10.5px;font-weight:600;white-space:nowrap;padding:0 11px;display:flex;align-items:center;border-bottom:3px solid transparent;transition:color .15s,border-color .15s;flex-shrink:0}
+.nav a:hover{color:#fff;border-bottom-color:var(--light)}
+
+/* CARDS */
+.card{background:#fff;margin:22px 12px;border-radius:16px;overflow:hidden;box-shadow:var(--sh)}
+.card+.card{margin-top:28px}
+
+/* COVER */
+.cover{background:linear-gradient(140deg,#0c1e3c 0%,#1a3a6e 45%,#1d4ed8 100%);padding:60px 28px 48px;text-align:center;position:relative;overflow:hidden}
+.cover::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 20% 80%,rgba(37,99,235,.3) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(96,165,250,.2) 0%,transparent 50%);pointer-events:none}
+.cover-eyebrow{display:inline-block;border:1px solid rgba(191,219,254,.4);color:var(--light);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:5px 16px;border-radius:20px;margin-bottom:20px;position:relative;z-index:1}
+.cover h1{font-family:'Playfair Display',serif;font-size:clamp(28px,6.5vw,52px);font-weight:900;color:#fff;line-height:1.05;margin-bottom:10px;position:relative;z-index:1}
+.cover h1 span{color:var(--light)}
+.cover-sub{color:rgba(191,219,254,.75);font-size:clamp(13px,3.5vw,15.5px);margin-bottom:32px;position:relative;z-index:1}
+.cover-line{width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--light),transparent);margin:0 auto 28px;position:relative;z-index:1}
+.cover-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 28px;position:relative;z-index:1}
+.cover-item{font-size:12px;color:rgba(191,219,254,.7)}
+.cover-item strong{color:#fff;font-weight:600}
+.cover-strip{background:var(--xlight);padding:14px 24px;border-top:3px solid var(--mid);font-size:13px;color:var(--dark);line-height:1.6}
+.cover-strip strong{color:var(--dark)}
+
+/* Q BANNER */
+.qb{padding:18px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;color:#fff}
+.qb-num{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;flex-shrink:0}
+.qb-text{flex:1;min-width:0}
+.qb-title{font-family:'Playfair Display',serif;font-size:clamp(16px,5vw,22px);font-weight:700;line-height:1.2}
+.qb-sub{font-size:11px;opacity:.6;margin-top:3px}
+.qb-marks{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:4px 14px;font-size:11.5px;font-weight:700;flex-shrink:0}
+
+/* CARD BODY */
+.body{padding:26px 24px 30px}
+.footer{background:var(--dark);padding:8px 24px;display:flex;justify-content:space-between;align-items:center;font-size:10.5px;color:rgba(255,255,255,.45)}
+.footer strong{color:rgba(255,255,255,.8)}
+
+/* PART LABELS */
+.part{margin:28px 0 14px}
+.plabel{display:inline-flex;align-items:center;gap:9px;background:var(--dark);color:#fff;font-size:11px;font-weight:700;padding:5px 16px 5px 6px;border-radius:0 22px 22px 0;margin-left:-24px;letter-spacing:.04em}
+.plabel .pcirc{background:rgba(255,255,255,.2);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800}
+.pm{display:inline-block;background:var(--xlight);color:var(--dark);font-size:10px;font-weight:700;padding:2px 10px;border-radius:10px;margin-left:6px}
+
+/* SECTION HEADERS */
+.sh{background:var(--mid);color:#fff;padding:8px 24px;font-size:13px;font-weight:700;margin:22px -24px 14px;letter-spacing:.01em}
+
+/* TYPOGRAPHY */
+p{margin-bottom:10px;font-size:13.5px}
+ul,ol{margin:8px 0 12px 24px}
+li{margin-bottom:7px;font-size:13.5px}
+strong{color:var(--dark)}
+h4{font-size:13.5px;font-weight:700;color:var(--dark);margin:14px 0 6px}
+
+/* BOXES */
+.box{border-radius:10px;padding:14px 17px;margin:13px 0;font-size:13px}
+.bt{font-weight:700;font-size:11.5px;letter-spacing:.04em;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.bb{background:var(--xlight);border-left:4px solid var(--mid)}.bb .bt{color:var(--dark)}
+.bg{background:var(--gl);border-left:4px solid var(--gb)}.bg .bt{color:var(--g)}
+.by{background:var(--yl);border-left:4px solid var(--yb)}.by .bt{color:var(--y)}
+.bo{background:var(--ol);border-left:4px solid var(--ob)}.bo .bt{color:var(--o)}
+.bp{background:var(--pl);border-left:4px solid var(--pb)}.bp .bt{color:var(--p)}
+.br{background:var(--rl);border-left:4px solid var(--rb)}.br .bt{color:var(--r)}
+.bt2{background:var(--tl);border-left:4px solid var(--tb)}.bt2 .bt{color:var(--t)}
+.bi{background:var(--il);border-left:4px solid var(--ib)}.bi .bt{color:var(--i)}
+
+/* TABLES */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 18px;border-radius:10px;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:280px}
+th{background:var(--mid);color:#fff;padding:10px 14px;text-align:left;font-weight:700;font-size:12px}
+td{padding:9px 14px;border-bottom:1px solid var(--line);vertical-align:top;color:#111!important;font-size:12.5px}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:#f8faff}
+
+/* STEPS LIST */
+.steps{list-style:none;padding:0;counter-reset:s}
+.steps li{counter-increment:s;padding:12px 0 12px 52px;position:relative;border-bottom:1px solid var(--line)}
+.steps li:last-child{border-bottom:none}
+.steps li::before{content:counter(s);position:absolute;left:0;top:12px;width:34px;height:34px;background:var(--mid);color:#fff;border-radius:50%;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.steps li strong{display:block;color:var(--dark);font-size:13.5px;margin-bottom:3px}
+
+/* CLASSIFICATION GRID */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:13px;margin:14px 0}
+.cc{background:#f8faff;border:1px solid var(--line);border-radius:10px;padding:14px 16px;border-top:3px solid var(--mid)}
+.cc h4{font-size:13px;color:var(--dark);margin:0 0 6px}
+.cc p{font-size:12.5px;color:#374151;margin:0}
+
+/* CHARACTERISTIC CARDS */
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin:14px 0}
+.chc{background:#f8faff;border-left:4px solid var(--mid);border-radius:0 10px 10px 0;padding:13px 16px}
+.chc h4{font-size:13px;color:var(--dark);margin:0 0 5px}
+.chc p{font-size:12.5px;color:#374151;margin:0}
+
+/* DIAGRAMS */
+.dw{margin:20px 0}
+.dl{color:#fff;font-size:11.5px;font-weight:700;padding:9px 16px;display:flex;align-items:center;gap:9px;border-radius:10px 10px 0 0;flex-wrap:wrap}
+.dl .tag{background:rgba(255,255,255,.18);padding:2px 10px;border-radius:4px;font-size:10px;font-family:'JetBrains Mono',monospace;letter-spacing:.04em}
+.db{border:2px solid;border-top:none;border-radius:0 0 10px 10px;background:#fff;padding:16px 12px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.dn{border-top:1px solid;padding:10px 16px;font-size:11.5px;border-radius:0 0 10px 10px}
+.dn strong{font-size:10.5px;display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em}
+.chip{display:inline-block;color:#fff;padding:2px 9px;border-radius:4px;font-size:10.5px;margin:2px 3px;font-family:'JetBrains Mono',monospace}
+
+/* SVG */
+svg text{font-family:'Source Sans 3',sans-serif;fill:#111!important}
+
+/* STUDY PLAN */
+.splan{list-style:none;padding:0}
+.splan li{padding:11px 14px 11px 52px;position:relative;border-bottom:1px solid var(--line);font-size:13px}
+.splan li:last-child{border-bottom:none}
+.day{position:absolute;left:0;top:10px;background:var(--dark);color:#fff;font-size:9px;font-weight:700;width:42px;text-align:center;padding:4px 2px;border-radius:0 5px 5px 0;line-height:1.3}
+
+/* END */
+.endcard{background:linear-gradient(135deg,var(--dark),var(--mid));color:#fff;text-align:center;padding:48px 24px;border-radius:16px;margin:28px 12px 40px;box-shadow:var(--sh)}
+.endcard h2{font-family:'Playfair Display',serif;font-size:clamp(22px,6vw,36px);margin-bottom:12px}
+.endcard p{font-size:13px;opacity:.7;margin-bottom:4px}
+
+@media(max-width:520px){
+  .card{margin:14px 6px;border-radius:12px}
+  .body{padding:18px 14px 22px}
+  .sh{margin-left:-14px;margin-right:-14px;padding-left:14px}
+  .plabel{margin-left:-14px}
+  .qb{padding:14px}
+  .qb-marks{display:none}
+  .cgrid,.chgrid{grid-template-columns:1fr}
+  .cover{padding:44px 16px 36px}
+}
+@media print{
+  body{background:#fff}.nav{display:none}
+  .shell{max-width:100%}
+  .card{box-shadow:none;margin:0;border-radius:0;border-bottom:3px solid var(--dark);page-break-after:always}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nbrand"><span class="pill">CSC 411</span><span>Answer Guide</span></div>
+  <a href="#cover">Cover</a>
+  <a href="#q1">Q1 · DFD / SDLC / ATM</a>
+  <a href="#q2">Q2 · ERD / Analysis</a>
+  <a href="#q3">Q3 · Activity / Systems</a>
+  <a href="#q4">Q4 · State / Info Sys</a>
+  <a href="#q5">Q5 · Sequence / Restaurant</a>
+  <a href="#q6">Q6 · Characteristics / Class</a>
+  <a href="#study">Study Plan</a>
+</nav>
+
+<!-- ══ COVER ══ -->
+<div class="card" id="cover" style="margin-top:20px">
+  <div class="cover">
+    <div class="cover-eyebrow">APEXHUB · Model Answers</div>
+    <h1>CSC 411 — <span>Systems Design</span><br>&amp; Analysis</h1>
+    <div class="cover-sub">First Semester Examination · Complete Answer Guide</div>
+    <div class="cover-line"></div>
+    <div class="cover-grid">
+      <div class="cover-item"><strong>University:</strong> AAUA, Akungba Akoko</div>
+      <div class="cover-item"><strong>Department:</strong> Computer Science</div>
+      <div class="cover-item"><strong>Exam Date:</strong> 10 / 03 / 2025</div>
+      <div class="cover-item"><strong>Time:</strong> 2 Hours · Core · Unit 3</div>
+    </div>
+  </div>
+  <div class="cover-strip">
+    <strong>📋 INSTRUCTION:</strong> Answer <strong>Question One</strong> (compulsory · 25 marks) and <strong>any other three</strong> questions (15 marks each). Every answer below includes full written explanations plus accurate SVG diagrams drawn to standard notation — Elmasri/Navathe for ERDs; UML for all other diagram types.
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════
+  QUESTION ONE — COMPULSORY  (25 Marks)
+══════════════════════════════════ -->
+<div class="card" id="q1">
+<div class="qb" style="background:linear-gradient(135deg,#1e3a5f,#2563eb)">
+  <div class="qb-num">1</div>
+  <div class="qb-text">
+    <div class="qb-title">Question One — Compulsory</div>
+    <div class="qb-sub">Estate Agency Level 1 DFD &nbsp;·&nbsp; SDLC 7 Steps &nbsp;·&nbsp; ATM Use Case Diagram</div>
+  </div>
+  <div class="qb-marks">25 Marks Total</div>
+</div>
+<div class="body">
+
+<!-- PART A -->
+<div class="part">
+  <div class="plabel"><span class="pcirc">a</span> Estate Agency — Level 1 DFD <span class="pm">12 Marks</span></div>
+</div>
+
+<div class="box bb">
+  <div class="bt">🔍 Step 1 — Identified Elements from Case Study</div>
+  <strong>External Entities (OUTSIDE system):</strong> Client (property owner), Buyer<br>
+  <strong>5 Processes:</strong> 1 Record New Client &nbsp;·&nbsp; 2 Record New Buyer &nbsp;·&nbsp; 3 Match Properties &nbsp;·&nbsp; 4 Invoice Client &nbsp;·&nbsp; 5 Archive Sale<br>
+  <strong>3 Data Stores:</strong> D1 Property File &nbsp;·&nbsp; D2 Buyer Details &nbsp;·&nbsp; D3 Invoices
+</div>
+
+<p>The Level 1 DFD below shows all 5 processes, both external entities, the 3 data stores, and every data-flow clearly labelled. All notation rules are applied: processes are 3-section rectangles, data stores are 2-section rectangles, external entities are ovals, and data-flows are named directed arrows.</p>
+
+<div class="dw">
+  <div class="dl" style="background:#1e3a5f"><span class="tag">Q1a · Level 1 DFD</span> Estate Agency System — All 5 Processes</div>
+  <div class="db" style="border-color:#1e3a5f">
+<svg viewBox="0 0 820 560" width="100%">
+<defs>
+  <marker id="a1" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,9 3.5,0 7" fill="#1e3a5f"/></marker>
+</defs>
+
+<!-- ── EXTERNAL ENTITY: Client ── -->
+<ellipse cx="72" cy="94" rx="60" ry="32" fill="#eff6ff" stroke="#2563eb" stroke-width="2.5"/>
+<text x="72" y="91" font-size="13" font-weight="700" fill="#1e3a5f" text-anchor="middle">Client</text>
+<text x="72" y="107" font-size="10" fill="#555" text-anchor="middle">(Property Owner)</text>
+
+<!-- ── EXTERNAL ENTITY: Buyer ── -->
+<ellipse cx="72" cy="440" rx="60" ry="32" fill="#eff6ff" stroke="#2563eb" stroke-width="2.5"/>
+<text x="72" y="445" font-size="13" font-weight="700" fill="#1e3a5f" text-anchor="middle">Buyer</text>
+
+<!-- ═══ PROCESS 1 — Record New Client ═══ -->
+<rect x="182" y="62" width="155" height="64" fill="white" stroke="#2563eb" stroke-width="2"/>
+<rect x="182" y="62" width="35" height="64" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+<line x1="182" y1="106" x2="337" y2="106" stroke="#2563eb" stroke-width="1.5"/>
+<text x="199" y="88" font-size="13" font-weight="700" fill="#1e3a5f" text-anchor="middle">1</text>
+<text x="262" y="88" font-size="11" font-weight="600" fill="#1e3a5f" text-anchor="middle">Record New</text>
+<text x="262" y="101" font-size="11" font-weight="600" fill="#1e3a5f" text-anchor="middle">Client</text>
+<text x="262" y="116" font-size="9" fill="#555" text-anchor="middle">Agency Office</text>
+
+<!-- ═══ PROCESS 2 — Record New Buyer ═══ -->
+<rect x="182" y="408" width="155" height="64" fill="white" stroke="#2563eb" stroke-width="2"/>
+<rect x="182" y="408" width="35" height="64" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+<line x1="182" y1="452" x2="337" y2="452" stroke="#2563eb" stroke-width="1.5"/>
+<text x="199" y="434" font-size="13" font-weight="700" fill="#1e3a5f" text-anchor="middle">2</text>
+<text x="262" y="434" font-size="11" font-weight="600" fill="#1e3a5f" text-anchor="middle">Record New</text>
+<text x="262" y="447" font-size="11" font-weight="600" fill="#1e3a5f" text-anchor="middle">Buyer</text>
+<text x="262" y="462" font-size="9" fill="#555" text-anchor="middle">Agency Office</text>
+
+<!-- ═══ PROCESS 3 — Match Properties ═══ -->
+<rect x="390" y="235" width="155" height="64" fill="white" stroke="#2563eb" stroke-width="2"/>
+<rect x="390" y="235" width="35" height="64" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+<line x1="390" y1="279" x2="545" y2="279" stroke="#2563eb" stroke-width="1.5"/>
+<text x="407" y="261" font-size="13" font-weight="700" fill="#1e3a5f" text-anchor="middle">3</text>
+<text x="470" y="261" font-size="11" font-weight="600" fill="#1e3a5f" text-anchor="middle">Match</text>
+<text x="470" y="274" font-size="11" font-weight="600" fill="#1e3a5f" text-anchor="middle">Properties</text>
+<text x="470" y="290" font-size="9" fill="#555" text-anchor="middle">Agency Office</text>
+
+<!-- ═══ PROCESS 4 — Invoice Client ═══ -->
+<rect x="610" y="62" width="155" height="64" fill="white" stroke="#2563eb" stroke-width="2"/>
+<rect x="610" y="62" width="35" height="64" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+<line x1="610" y1="106" x2="765" y2="106" stroke="#2563eb" stroke-width="1.5"/>
+<text x="627" y="88" font-size="13" font-weight="700" fill="#1e3a5f" text-anchor="middle">4</text>
+<text x="690" y="88" font-size="11" font-weight="600" fill="#1e3a5f" text-anchor="middle">Invoice</text>
+<text x="690" y="101" font-size="11" font-weight="600" fill="#1e3a5f" text-anchor="middle">Client</text>
+<text x="690" y="116" font-size="9" fill="#555" text-anchor="middle">Agency Office</text>
+
+<!-- ═══ PROCESS 5 — Archive Sale ═══ -->
+<rect x="610" y="408" width="155" height="64" fill="white" stroke="#2563eb" stroke-width="2"/>
+<rect x="610" y="408" width="35" height="64" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+<line x1="610" y1="452" x2="765" y2="452" stroke="#2563eb" stroke-width="1.5"/>
+<text x="627" y="434" font-size="13" font-weight="700" fill="#1e3a5f" text-anchor="middle">5</text>
+<text x="690" y="434" font-size="11" font-weight="600" fill="#1e3a5f" text-anchor="middle">Archive</text>
+<text x="690" y="447" font-size="11" font-weight="600" fill="#1e3a5f" text-anchor="middle">Sale</text>
+<text x="690" y="462" font-size="9" fill="#555" text-anchor="middle">Agency Office</text>
+
+<!-- DATA STORE D1 — Property File -->
+<rect x="390" y="62" width="155" height="32" fill="white" stroke="#2563eb" stroke-width="2"/>
+<rect x="390" y="62" width="30" height="32" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+<text x="405" y="82" font-size="10" font-weight="700" fill="#1e3a5f" text-anchor="middle">D1</text>
+<text x="474" y="82" font-size="11" fill="#1e3a5f" text-anchor="middle">Property File</text>
+
+<!-- DATA STORE D2 — Buyer Details -->
+<rect x="390" y="444" width="155" height="32" fill="white" stroke="#2563eb" stroke-width="2"/>
+<rect x="390" y="444" width="30" height="32" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+<text x="405" y="464" font-size="10" font-weight="700" fill="#1e3a5f" text-anchor="middle">D2</text>
+<text x="474" y="464" font-size="11" fill="#1e3a5f" text-anchor="middle">Buyer Details</text>
+
+<!-- DATA STORE D3 — Invoices -->
+<rect x="610" y="235" width="155" height="32" fill="white" stroke="#2563eb" stroke-width="2"/>
+<rect x="610" y="235" width="30" height="32" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+<text x="625" y="255" font-size="10" font-weight="700" fill="#1e3a5f" text-anchor="middle">D3</text>
+<text x="701" y="255" font-size="11" fill="#1e3a5f" text-anchor="middle">Invoices</text>
+
+<!-- ── DATA FLOWS ── -->
+<!-- Client → P1: property details -->
+<line x1="132" y1="88" x2="182" y2="84" stroke="#1e3a5f" stroke-width="1.8" marker-end="url(#a1)"/>
+<text x="157" y="79" font-size="10" fill="#1e3a5f" text-anchor="middle">property details</text>
+
+<!-- P1 → D1: property record -->
+<line x1="337" y1="80" x2="390" y2="76" stroke="#1e3a5f" stroke-width="1.8" marker-end="url(#a1)"/>
+<text x="363" y="70" font-size="10" fill="#1e3a5f" text-anchor="middle">property record</text>
+
+<!-- D1 → P3: property list for matching -->
+<line x1="453" y1="94" x2="440" y2="235" stroke="#1e3a5f" stroke-width="1.8" marker-end="url(#a1)"/>
+<text x="420" y="168" font-size="10" fill="#1e3a5f" text-anchor="end">property list</text>
+
+<!-- D1 → P4: property data -->
+<line x1="545" y1="72" x2="610" y2="78" stroke="#1e3a5f" stroke-width="1.8" marker-end="url(#a1)"/>
+<text x="577" y="65" font-size="10" fill="#1e3a5f" text-anchor="middle">property data</text>
+
+<!-- P4 → Client: invoice -->
+<line x1="690" y1="62" x2="120" y2="88" stroke="#1e3a5f" stroke-width="1.8" marker-end="url(#a1)"/>
+<text x="420" y="34" font-size="10" fill="#1e3a5f" text-anchor="middle">invoice / commission</text>
+
+<!-- P4 → D3: invoice copy -->
+<line x1="687" y1="126" x2="687" y2="235" stroke="#1e3a5f" stroke-width="1.8" marker-end="url(#a1)"/>
+<text x="704" y="184" font-size="10" fill="#1e3a5f">invoice copy</text>
+
+<!-- P5 → D3: archived invoice -->
+<line x1="686" y1="408" x2="686" y2="267" stroke="#1e3a5f" stroke-width="1.8" marker-end="url(#a1)"/>
+<text x="703" y="340" font-size="10" fill="#1e3a5f">archived copy</text>
+
+<!-- D3 → P5: invoice retrieved for stamping -->
+<line x1="662" y1="267" x2="662" y2="408" stroke="#1e3a5f" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#a1)"/>
+
+<!-- Client → P5: payment (triggers archive) -->
+<line x1="120" y1="104" x2="620" y2="418" stroke="#1e3a5f" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#a1)"/>
+<text x="354" y="265" font-size="10" fill="#1e3a5f" text-anchor="middle">payment received</text>
+
+<!-- Buyer → P2: buyer requirements -->
+<line x1="132" y1="440" x2="182" y2="440" stroke="#1e3a5f" stroke-width="1.8" marker-end="url(#a1)"/>
+<text x="157" y="432" font-size="10" fill="#1e3a5f" text-anchor="middle">buyer requirements</text>
+
+<!-- P2 → D2: buyer record -->
+<line x1="337" y1="456" x2="390" y2="456" stroke="#1e3a5f" stroke-width="1.8" marker-end="url(#a1)"/>
+<text x="363" y="470" font-size="10" fill="#1e3a5f" text-anchor="middle">buyer record</text>
+
+<!-- D2 → P3: buyer requirements for matching -->
+<line x1="465" y1="444" x2="456" y2="299" stroke="#1e3a5f" stroke-width="1.8" marker-end="url(#a1)"/>
+<text x="483" y="372" font-size="10" fill="#1e3a5f">buyer requirements</text>
+
+<!-- P3 → Buyer: matched properties -->
+<line x1="390" y1="272" x2="132" y2="442" stroke="#1e3a5f" stroke-width="1.8" marker-end="url(#a1)"/>
+<text x="220" y="370" font-size="10" fill="#1e3a5f" text-anchor="middle">matched properties</text>
+
+<!-- P3 → P4: sale details -->
+<line x1="545" y1="256" x2="610" y2="108" stroke="#1e3a5f" stroke-width="1.8" marker-end="url(#a1)"/>
+<text x="593" y="186" font-size="10" fill="#1e3a5f" text-anchor="end">sale details</text>
+</svg>
+  </div>
+  <div class="dn" style="border-top-color:#bfdbfe;background:#eff6ff;border-color:#1e3a5f">
+    <strong style="color:#1e3a5f">Level 1 DFD Rules Applied</strong>
+    <span class="chip" style="background:#2563eb">All arrows labelled</span>
+    <span class="chip" style="background:#2563eb">Each process ≥1 input &amp; ≥1 output</span>
+    <span class="chip" style="background:#2563eb">D prefix on data stores</span>
+    <span class="chip" style="background:#2563eb">Entities are ovals</span>
+    <span class="chip" style="background:#2563eb">No entity→entity direct flows</span>
+  </div>
+</div>
+
+<!-- PART B -->
+<div class="part">
+  <div class="plabel"><span class="pcirc">b</span> Systems Development Life Cycle (SDLC) <span class="pm">5 Marks</span></div>
+</div>
+<p>The <strong>Systems Development Life Cycle (SDLC)</strong> is a structured process used by organisations and analysts to plan, design, develop, test, and deliver information systems. It has <strong>7 steps:</strong></p>
+<ol class="steps">
+  <li><strong>Planning / Feasibility Study</strong> Define scope and objectives. Assess technical, financial, and operational feasibility. Key question: <em>"Is this system worth building?"</em></li>
+  <li><strong>System Analysis</strong> Study the existing system in detail. Gather user requirements through interviews, questionnaires, and observation. Produce a requirements specification. Tools: DFDs, ERDs.</li>
+  <li><strong>System Design</strong> Design the new system — database structure, interfaces, and architecture. Covers Logical Design (what it should do) and Physical Design (how it will do it). Tools: Use Case and Class diagrams.</li>
+  <li><strong>Implementation / Coding</strong> Programmers write the actual code based on the design specification. This is where the system is physically built.</li>
+  <li><strong>Testing</strong> The system is tested against requirements — unit testing, integration testing, and user acceptance testing (UAT). Bugs are identified and corrected.</li>
+  <li><strong>Deployment / Installation</strong> The system goes live. Methods include direct changeover, parallel running, pilot conversion, or phased conversion.</li>
+  <li><strong>Maintenance</strong> The system is monitored after deployment. Bugs are fixed (corrective), improvements are added (perfective), and the system adapts to change (adaptive). This phase lasts the system's lifetime.</li>
+</ol>
+
+<!-- PART C -->
+<div class="part">
+  <div class="plabel"><span class="pcirc">c</span> ATM System — Use Case Diagram <span class="pm">8 Marks</span></div>
+</div>
+<div class="box bi">
+  <div class="bt">🔍 Actors &amp; Use Cases Identified</div>
+  <strong>Actors:</strong> Customer, Bank Administrator, Bank Server (system actor)<br>
+  <strong>Use Cases:</strong> Withdraw Cash · Deposit Funds · Check Balance · Change PIN · Transfer Funds · Verify PIN (included) · Print Receipt (extends) · Manage ATM Settings · Load Cash<br>
+  <strong>&lt;&lt;include&gt;&gt;:</strong> All 5 main transactions include Verify PIN — mandatory<br>
+  <strong>&lt;&lt;extend&gt;&gt;:</strong> Print Receipt optionally extends Withdraw Cash
+</div>
+<div class="dw">
+  <div class="dl" style="background:#4c1d95"><span class="tag">Q1c · Use Case Diagram</span> ATM System — Full Actor &amp; Relationship View</div>
+  <div class="db" style="border-color:#6d28d9">
+<svg viewBox="0 0 780 530" width="100%">
+<defs>
+  <marker id="uca" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#6d28d9"/></marker>
+</defs>
+<!-- System boundary -->
+<rect x="138" y="14" width="494" height="504" rx="12" fill="#faf5ff" stroke="#7c3aed" stroke-width="2.5"/>
+<text x="385" y="40" font-size="14" font-weight="700" fill="#4c1d95" text-anchor="middle">« ATM SYSTEM »</text>
+
+<!-- USE CASES -->
+<ellipse cx="285" cy="100" rx="86" ry="27" fill="white" stroke="#7c3aed" stroke-width="2"/><text x="285" y="104" font-size="12" font-weight="600" fill="#4c1d95" text-anchor="middle">Withdraw Cash</text>
+<ellipse cx="510" cy="100" rx="86" ry="27" fill="white" stroke="#7c3aed" stroke-width="2"/><text x="510" y="104" font-size="12" font-weight="600" fill="#4c1d95" text-anchor="middle">Check Balance</text>
+<ellipse cx="285" cy="195" rx="86" ry="27" fill="white" stroke="#7c3aed" stroke-width="2"/><text x="285" y="199" font-size="12" font-weight="600" fill="#4c1d95" text-anchor="middle">Deposit Funds</text>
+<ellipse cx="510" cy="195" rx="86" ry="27" fill="white" stroke="#7c3aed" stroke-width="2"/><text x="510" y="199" font-size="12" font-weight="600" fill="#4c1d95" text-anchor="middle">Transfer Funds</text>
+<ellipse cx="285" cy="290" rx="86" ry="27" fill="white" stroke="#7c3aed" stroke-width="2"/><text x="285" y="294" font-size="12" font-weight="600" fill="#4c1d95" text-anchor="middle">Change PIN</text>
+<!-- Verify PIN — included (shaded) -->
+<ellipse cx="510" cy="295" rx="86" ry="27" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+<text x="510" y="291" font-size="12" font-weight="600" fill="#4c1d95" text-anchor="middle">Verify PIN</text>
+<text x="510" y="307" font-size="10" fill="#7c3aed" text-anchor="middle">«included»</text>
+<!-- Print Receipt — extend (shaded) -->
+<ellipse cx="285" cy="390" rx="86" ry="27" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+<text x="285" y="386" font-size="12" font-weight="600" fill="#4c1d95" text-anchor="middle">Print Receipt</text>
+<text x="285" y="402" font-size="10" fill="#7c3aed" text-anchor="middle">«extend»</text>
+<!-- Manage ATM Settings -->
+<ellipse cx="510" cy="410" rx="92" ry="27" fill="white" stroke="#7c3aed" stroke-width="2"/>
+<text x="510" y="406" font-size="12" font-weight="600" fill="#4c1d95" text-anchor="middle">Manage ATM</text>
+<text x="510" y="420" font-size="12" font-weight="600" fill="#4c1d95" text-anchor="middle">Settings</text>
+<!-- Load Cash -->
+<ellipse cx="400" cy="487" rx="86" ry="27" fill="white" stroke="#7c3aed" stroke-width="2"/>
+<text x="400" y="491" font-size="12" font-weight="600" fill="#4c1d95" text-anchor="middle">Load Cash</text>
+
+<!-- CUSTOMER actor left -->
+<circle cx="50" cy="210" r="19" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+<line x1="50" y1="229" x2="50" y2="272" stroke="#7c3aed" stroke-width="2"/>
+<line x1="28" y1="248" x2="72" y2="248" stroke="#7c3aed" stroke-width="2"/>
+<line x1="50" y1="272" x2="30" y2="300" stroke="#7c3aed" stroke-width="2"/>
+<line x1="50" y1="272" x2="70" y2="300" stroke="#7c3aed" stroke-width="2"/>
+<text x="50" y="320" font-size="12" font-weight="700" fill="#4c1d95" text-anchor="middle">Customer</text>
+<!-- Customer face -->
+<text x="50" y="216" font-size="19" text-anchor="middle">👤</text>
+
+<!-- ADMIN actor right -->
+<circle cx="730" cy="420" r="19" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+<line x1="730" y1="439" x2="730" y2="480" stroke="#7c3aed" stroke-width="2"/>
+<line x1="708" y1="458" x2="752" y2="458" stroke="#7c3aed" stroke-width="2"/>
+<line x1="730" y1="480" x2="712" y2="506" stroke="#7c3aed" stroke-width="2"/>
+<line x1="730" y1="480" x2="748" y2="506" stroke="#7c3aed" stroke-width="2"/>
+<text x="730" y="523" font-size="11" font-weight="700" fill="#4c1d95" text-anchor="middle">Bank Admin</text>
+<text x="730" y="428" font-size="19" text-anchor="middle">👤</text>
+
+<!-- Customer → use case associations -->
+<line x1="68" y1="196" x2="199" y2="106" stroke="#7c3aed" stroke-width="1.8"/>
+<line x1="68" y1="206" x2="199" y2="200" stroke="#7c3aed" stroke-width="1.8"/>
+<line x1="68" y1="218" x2="199" y2="290" stroke="#7c3aed" stroke-width="1.8"/>
+<line x1="68" y1="200" x2="424" y2="103" stroke="#7c3aed" stroke-width="1.8"/>
+<line x1="68" y1="212" x2="424" y2="197" stroke="#7c3aed" stroke-width="1.8"/>
+
+<!-- «include» dashed arrows → Verify PIN -->
+<line x1="371" y1="104" x2="424" y2="281" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#uca)"/>
+<text x="370" y="196" font-size="10" fill="#7c3aed">«include»</text>
+<line x1="371" y1="197" x2="424" y2="286" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#uca)"/>
+<line x1="371" y1="288" x2="424" y2="290" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#uca)"/>
+<line x1="596" y1="103" x2="540" y2="268" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#uca)"/>
+<line x1="596" y1="197" x2="544" y2="268" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#uca)"/>
+
+<!-- «extend» Print Receipt → Withdraw Cash -->
+<line x1="285" y1="363" x2="285" y2="127" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#uca)"/>
+<text x="232" y="248" font-size="10" fill="#7c3aed" text-anchor="middle">«extend»</text>
+
+<!-- Admin → Manage Settings & Load Cash -->
+<line x1="712" y1="416" x2="602" y2="412" stroke="#7c3aed" stroke-width="1.8"/>
+<line x1="712" y1="428" x2="486" y2="487" stroke="#7c3aed" stroke-width="1.8"/>
+
+<!-- Legend -->
+<rect x="148" y="456" width="110" height="40" rx="5" fill="#ede9fe" stroke="#c4b5fd" stroke-width="1"/>
+<line x1="158" y1="472" x2="192" y2="472" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="198" y="476" font-size="9.5" fill="#1a1a2e">= association</text>
+<line x1="158" y1="488" x2="192" y2="488" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4,2"/>
+<text x="198" y="492" font-size="9.5" fill="#1a1a2e">= include / extend</text>
+</svg>
+  </div>
+  <div class="dn" style="background:#f5f3ff;border-top-color:#c4b5fd;border-color:#6d28d9">
+    <strong style="color:#4c1d95">Use Case Diagram Rules Applied</strong>
+    Use cases inside rectangle boundary · Actors outside boundary · &lt;&lt;include&gt;&gt; = mandatory sub-behaviour (cannot skip) · &lt;&lt;extend&gt;&gt; = optional/conditional behaviour · Solid line = actor-to-use-case association · Dashed arrow = include/extend dependency
+  </div>
+</div>
+</div><!-- end body -->
+<div class="footer"><strong>APEXHUB · CSC 411 Answer Guide</strong><span>Q1 · 25 Marks · Compulsory</span></div>
+</div><!-- end card -->
+
+
+<!-- ══════════════════════════
+  QUESTION TWO  (15 Marks)
+══════════════════════════ -->
+<div class="card" id="q2">
+<div class="qb" style="background:linear-gradient(135deg,#14532d,#166534)">
+  <div class="qb-num">2</div>
+  <div class="qb-text">
+    <div class="qb-title">Question Two</div>
+    <div class="qb-sub">Factory ERD (Elmasri/Navathe) &nbsp;·&nbsp; System Analysis vs Design &amp; Importance</div>
+  </div>
+  <div class="qb-marks">15 Marks</div>
+</div>
+<div class="body">
+
+<!-- PART A -->
+<div class="part">
+  <div class="plabel"><span class="pcirc">a</span> Entity-Relationship Diagram — Factory System <span class="pm">9 Marks</span></div>
+</div>
+<p>An <strong>Entity-Relationship Diagram (ERD)</strong> is a graphical representation of the data structure of a system. It shows the entities (things), their attributes (properties), and the relationships between them. Conceived by <strong>Peter Chen in 1976</strong>. This course uses Elmasri/Navathe notation.</p>
+
+<div class="box bg">
+  <div class="bt">📋 Entities &amp; Relationships Identified</div>
+  <strong>Entities:</strong> EMPLOYEE (attributes: ID-key, name, position, pay_rate, pay_type) · FACTORY (city-key, throughput) · ASSEMBLY LINE (weak entity: number-weak-key, throughput) · PART (part_number-key, description, price)<br>
+  <strong>Relationships:</strong> WORKS AT (N:1) · MANAGES (1:1, total factory participation) · CONTAINS (1:N, identifying — for weak entity) · SUPERVISES (recursive 1:N) · BUILDS (N:M)
+</div>
+
+<div class="dw">
+  <div class="dl" style="background:#14532d"><span class="tag">Q2a · ERD</span> Factory System — Elmasri/Navathe Notation — Full Diagram</div>
+  <div class="db" style="border-color:#166534">
+<svg viewBox="0 0 820 580" width="100%">
+
+<!-- ══ EMPLOYEE ENTITY ══ -->
+<rect x="290" y="200" width="120" height="36" fill="white" stroke="#166534" stroke-width="2.5"/>
+<text x="350" y="223" font-size="14" font-weight="700" fill="#14532d" text-anchor="middle">employee</text>
+
+<!-- Employee attributes -->
+<!-- empID (key: underline) -->
+<ellipse cx="200" cy="118" rx="32" ry="20" fill="#dcfce7" stroke="#166534" stroke-width="1.5"/>
+<text x="200" y="121" font-size="11" fill="#14532d" text-anchor="middle">ID</text>
+<line x1="180" y1="128" x2="220" y2="128" stroke="#14532d" stroke-width="1.5"/>
+<line x1="200" y1="138" x2="290" y2="208" stroke="#166534" stroke-width="1.5"/>
+
+<!-- name -->
+<ellipse cx="330" cy="110" rx="32" ry="20" fill="#dcfce7" stroke="#166534" stroke-width="1.5"/>
+<text x="330" y="115" font-size="11" fill="#14532d" text-anchor="middle">name</text>
+<line x1="330" y1="130" x2="330" y2="200" stroke="#166534" stroke-width="1.5"/>
+
+<!-- position -->
+<ellipse cx="430" cy="118" rx="36" ry="20" fill="#dcfce7" stroke="#166534" stroke-width="1.5"/>
+<text x="430" y="123" font-size="11" fill="#14532d" text-anchor="middle">position</text>
+<line x1="415" y1="138" x2="395" y2="200" stroke="#166534" stroke-width="1.5"/>
+
+<!-- pay_rate -->
+<ellipse cx="510" cy="200" rx="38" ry="20" fill="#dcfce7" stroke="#166534" stroke-width="1.5"/>
+<text x="510" y="205" font-size="11" fill="#14532d" text-anchor="middle">pay_rate</text>
+<line x1="472" y1="205" x2="410" y2="210" stroke="#166534" stroke-width="1.5"/>
+
+<!-- pay_type -->
+<ellipse cx="510" cy="140" rx="38" ry="20" fill="#dcfce7" stroke="#166534" stroke-width="1.5"/>
+<text x="510" y="145" font-size="11" fill="#14532d" text-anchor="middle">pay_type</text>
+<line x1="490" y1="158" x2="415" y2="204" stroke="#166534" stroke-width="1.5"/>
+
+<!-- ══ WORKS AT RELATIONSHIP ══ -->
+<polygon points="350,302 392,332 350,362 308,332" fill="#dcfce7" stroke="#166534" stroke-width="2"/>
+<text x="350" y="336" font-size="12" fill="#14532d" text-anchor="middle" font-weight="700">works at</text>
+<text x="350" y="295" font-size="14" font-weight="700" fill="#166534" text-anchor="middle">N</text>
+<text x="350" y="380" font-size="14" font-weight="700" fill="#166534" text-anchor="middle">1</text>
+<line x1="350" y1="236" x2="350" y2="302" stroke="#166534" stroke-width="2"/>
+<line x1="350" y1="362" x2="350" y2="400" stroke="#166534" stroke-width="2"/>
+
+<!-- ══ FACTORY ENTITY ══ -->
+<rect x="290" y="400" width="120" height="36" fill="white" stroke="#166534" stroke-width="2.5"/>
+<text x="350" y="423" font-size="14" font-weight="700" fill="#14532d" text-anchor="middle">factory</text>
+
+<!-- Factory attributes -->
+<!-- city (key) -->
+<ellipse cx="220" cy="474" rx="30" ry="20" fill="#dcfce7" stroke="#166534" stroke-width="1.5"/>
+<text x="220" y="477" font-size="11" fill="#14532d" text-anchor="middle">city</text>
+<line x1="202" y1="484" x2="238" y2="484" stroke="#14532d" stroke-width="1.5"/>
+<line x1="220" y1="454" x2="294" y2="422" stroke="#166534" stroke-width="1.5"/>
+
+<!-- throughput (factory) -->
+<ellipse cx="430" cy="474" rx="42" ry="20" fill="#dcfce7" stroke="#166534" stroke-width="1.5"/>
+<text x="430" y="479" font-size="11" fill="#14532d" text-anchor="middle">throughput</text>
+<line x1="415" y1="454" x2="400" y2="436" stroke="#166534" stroke-width="1.5"/>
+
+<!-- ══ MANAGES (1:1, total factory) ══ -->
+<polygon points="160,270 196,296 160,322 124,296" fill="#dcfce7" stroke="#166534" stroke-width="2"/>
+<text x="160" y="300" font-size="11" fill="#14532d" text-anchor="middle" font-weight="700">manages</text>
+<text x="96" y="268" font-size="13" font-weight="700" fill="#166534">1</text>
+<text x="96" y="328" font-size="13" font-weight="700" fill="#166534">1</text>
+<!-- Double line to factory (total participation) -->
+<line x1="153" y1="322" x2="294" y2="412" stroke="#166534" stroke-width="2.5"/>
+<line x1="162" y1="322" x2="303" y2="412" stroke="#166534" stroke-width="2.5"/>
+<!-- Single line to employee -->
+<line x1="160" y1="270" x2="218" y2="234" stroke="#166534" stroke-width="2"/>
+<text x="48" y="342" font-size="9.5" fill="#555" text-anchor="middle">double line =</text>
+<text x="48" y="354" font-size="9.5" fill="#555" text-anchor="middle">total participation</text>
+
+<!-- ══ SUPERVISES (recursive) ══ -->
+<polygon points="350,198 380,214 350,230 320,214" fill="#dcfce7" stroke="#166534" stroke-width="1.5"/>
+<text x="350" y="218" font-size="10" fill="#14532d" text-anchor="middle" font-weight="600">supervises</text>
+<path d="M 380 212 Q 450 190 430 150 Q 420 130 400 130 Q 380 130 370 145" stroke="#166534" stroke-width="1.5" fill="none"/>
+<text x="456" y="182" font-size="10" fill="#166534">1</text>
+<text x="456" y="155" font-size="10" fill="#166534">N</text>
+
+<!-- ══ ASSEMBLY LINE (weak entity) ══ -->
+<rect x="598" y="248" width="135" height="46" fill="none" stroke="#166534" stroke-width="2.5"/>
+<rect x="606" y="256" width="119" height="30" fill="#dcfce7" stroke="#166534" stroke-width="1.5"/>
+<text x="665" y="276" font-size="12" fill="#14532d" text-anchor="middle" font-weight="700">assembly line</text>
+<text x="665" y="234" font-size="11" font-weight="600" fill="#14532d" text-anchor="middle">WEAK ENTITY</text>
+
+<!-- CONTAINS (identifying — double diamond) -->
+<polygon points="550,338 590,366 550,394 510,366" fill="none" stroke="#166534" stroke-width="2.5"/>
+<polygon points="550,346 584,366 550,386 516,366" fill="#dcfce7" stroke="#166534" stroke-width="1.5"/>
+<text x="550" y="371" font-size="11" fill="#14532d" text-anchor="middle" font-weight="600">contains</text>
+<line x1="650" y1="294" x2="590" y2="352" stroke="#166534" stroke-width="2"/>
+<text x="626" y="322" font-size="12" font-weight="700" fill="#166534">N</text>
+<line x1="510" y1="366" x2="410" y2="420" stroke="#166534" stroke-width="2"/>
+<text x="454" y="384" font-size="12" font-weight="700" fill="#166534">1</text>
+
+<!-- Assembly line attributes -->
+<!-- number (weak key: dashed underline) -->
+<ellipse cx="608" cy="360" rx="30" ry="18" fill="#dcfce7" stroke="#166534" stroke-width="1.5"/>
+<text x="608" y="364" font-size="11" fill="#14532d" text-anchor="middle">number</text>
+<line x1="590" y1="370" x2="626" y2="370" stroke="#14532d" stroke-width="1.5" stroke-dasharray="4,2"/>
+<line x1="605" y1="294" x2="608" y2="342" stroke="#166534" stroke-width="1.5"/>
+<text x="552" y="410" font-size="9" fill="#777" text-anchor="middle">weak key</text>
+<text x="552" y="421" font-size="9" fill="#777" text-anchor="middle">(dashed underline)</text>
+
+<!-- throughput (assembly line) -->
+<ellipse cx="730" cy="360" rx="42" ry="18" fill="#dcfce7" stroke="#166534" stroke-width="1.5"/>
+<text x="730" y="365" font-size="11" fill="#14532d" text-anchor="middle">throughput</text>
+<line x1="718" y1="294" x2="720" y2="342" stroke="#166534" stroke-width="1.5"/>
+
+<!-- ══ PART (entity) ══ -->
+<rect x="598" y="460" width="120" height="36" fill="white" stroke="#166534" stroke-width="2.5"/>
+<text x="658" y="483" font-size="13" font-weight="700" fill="#14532d" text-anchor="middle">part</text>
+
+<!-- BUILDS (N:M) -->
+<polygon points="490,462 524,488 490,514 456,488" fill="#dcfce7" stroke="#166534" stroke-width="2"/>
+<text x="490" y="492" font-size="11" fill="#14532d" text-anchor="middle" font-weight="700">builds</text>
+<line x1="598" y1="477" x2="524" y2="488" stroke="#166534" stroke-width="2"/>
+<text x="560" y="475" font-size="12" font-weight="700" fill="#166534">M</text>
+<line x1="456" y1="488" x2="410" y2="436" stroke="#166534" stroke-width="2"/>
+<text x="428" y="460" font-size="12" font-weight="700" fill="#166534">N</text>
+
+<!-- Part attributes -->
+<ellipse cx="650" cy="524" rx="44" ry="18" fill="#dcfce7" stroke="#166534" stroke-width="1.5"/>
+<text x="650" y="527" font-size="11" fill="#14532d" text-anchor="middle">part_number</text>
+<line x1="638" y1="510" x2="616" y2="496" stroke="#166534" stroke-width="1.5"/>
+<line x1="620" y1="533" x2="680" y2="533" stroke="#14532d" stroke-width="1.5"/>
+
+<ellipse cx="762" cy="488" rx="40" ry="18" fill="#dcfce7" stroke="#166534" stroke-width="1.5"/>
+<text x="762" y="493" font-size="11" fill="#14532d" text-anchor="middle">description</text>
+<line x1="722" y1="488" x2="718" y2="488" stroke="#166534" stroke-width="1.5"/>
+
+<!-- DIAGRAM TITLE -->
+<text x="410" y="18" font-size="14" font-weight="700" fill="#14532d" text-anchor="middle">ENTITY-RELATIONSHIP DIAGRAM — FACTORY SYSTEM (Elmasri/Navathe)</text>
+</svg>
+  </div>
+  <div class="dn" style="background:#f0fdf4;border-top-color:#bbf7d0;border-color:#166534">
+    <strong style="color:#14532d">ERD Notation (Elmasri/Navathe) Applied</strong>
+    Rectangle = Entity · Oval = Attribute · Underlined oval = Key Attribute · Diamond = Relationship · Double-border rect = Weak Entity · Double diamond = Identifying Relationship · Dashed underline = Weak Key · Double line = Total Participation · N/M labels = Cardinality
+  </div>
+</div>
+
+<!-- PART B -->
+<div class="part">
+  <div class="plabel"><span class="pcirc">b</span> System Analysis vs System Design — Definitions &amp; Importance <span class="pm">6 Marks</span></div>
+</div>
+
+<div class="box bb">
+  <div class="bt">📖 System Analysis</div>
+  <strong>Definition:</strong> System Analysis is the process of studying and examining an existing system to understand how it works, identify its problems, and determine requirements for an improved or new system. It answers: <em>"What should the system do?"</em>
+  <br><br><strong>Key activities:</strong> Investigating through interviews, questionnaires, observation · Creating models (DFDs, ERDs) · Identifying problems and inefficiencies · Determining functional/non-functional requirements · Producing a requirements specification document
+</div>
+
+<div class="box bg">
+  <div class="bt">🛠️ System Design</div>
+  <strong>Definition:</strong> System Design is the process of creating detailed technical specifications for the new system based on the requirements from analysis. It answers: <em>"How will the system do it?"</em> It has two phases: <strong>Logical Design</strong> (what the system should do) and <strong>Physical Design</strong> (how it will be built).
+</div>
+
+<div class="tw">
+  <table>
+    <tr><th>Aspect</th><th>System Analysis</th><th>System Design</th></tr>
+    <tr><td><strong>Key Question</strong></td><td>What should the system do?</td><td>How will the system do it?</td></tr>
+    <tr><td><strong>Produces</strong></td><td>Requirements specification (logical model)</td><td>Technical blueprint (physical model)</td></tr>
+    <tr><td><strong>Tools Used</strong></td><td>DFDs, ERDs, interviews</td><td>Use Case, Class, Sequence diagrams</td></tr>
+    <tr><td><strong>Why Important</strong></td><td>Ensures the RIGHT problem is solved; reduces costly late changes; shared understanding between users and developers</td><td>Provides a blueprint for consistent development; allows parallel work; ensures efficiency, scalability, and maintainability</td></tr>
+  </table>
+</div>
+
+</div><!-- end body -->
+<div class="footer"><strong>APEXHUB · CSC 411 Answer Guide</strong><span>Q2 · 15 Marks</span></div>
+</div><!-- end card -->
+
+
+<!-- ══════════════════════════
+  QUESTION THREE  (15 Marks)
+══════════════════════════ -->
+<div class="card" id="q3">
+<div class="qb" style="background:linear-gradient(135deg,#78350f,#c2410c)">
+  <div class="qb-num">3</div>
+  <div class="qb-text">
+    <div class="qb-title">Question Three</div>
+    <div class="qb-sub">Activity Diagram — Online Shopping System &nbsp;·&nbsp; Five Classifications of Systems</div>
+  </div>
+  <div class="qb-marks">15 Marks</div>
+</div>
+<div class="body">
+
+<!-- PART A -->
+<div class="part">
+  <div class="plabel"><span class="pcirc">a</span> Activity Diagrams in System Design — Online Shopping Example <span class="pm">8 Marks</span></div>
+</div>
+
+<p>An <strong>Activity Diagram</strong> is a UML behavioral diagram that models the flow of activities (steps/actions) within a system. It shows the sequence of actions, decision points, parallel (concurrent) flows, and the beginning and end of a process.</p>
+
+<div class="box bo">
+  <div class="bt">🔧 How Activity Diagrams are Used in System Design</div>
+  Document business processes BEFORE building the system so stakeholders can verify the logic · Model the flow of a specific use case step-by-step · Identify decision points (branches), parallel operations (fork/join), and exception paths · Help developers understand exactly what code logic is needed · Communicate system behaviour to non-technical stakeholders
+</div>
+
+<div class="dw">
+  <div class="dl" style="background:#92400e"><span class="tag">Q3a · Activity Diagram</span> Online Shopping System — Place Order Workflow</div>
+  <div class="db" style="border-color:#c2410c">
+<svg viewBox="0 0 600 760" width="100%">
+<defs>
+  <marker id="act" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#92400e"/></marker>
+</defs>
+
+<!-- Initial node -->
+<circle cx="300" cy="30" r="16" fill="#c2410c"/>
+<line x1="300" y1="46" x2="300" y2="68" stroke="#92400e" stroke-width="2" marker-end="url(#act)"/>
+
+<!-- ACTIVITY 1: Login -->
+<rect x="182" y="68" width="236" height="38" rx="19" fill="white" stroke="#c2410c" stroke-width="2"/>
+<text x="300" y="91" font-size="13" fill="#78350f" text-anchor="middle" font-weight="600">Login / Register</text>
+<line x1="300" y1="106" x2="300" y2="128" stroke="#92400e" stroke-width="2" marker-end="url(#act)"/>
+
+<!-- ACTIVITY 2: Browse Products -->
+<rect x="182" y="128" width="236" height="38" rx="19" fill="white" stroke="#c2410c" stroke-width="2"/>
+<text x="300" y="151" font-size="13" fill="#78350f" text-anchor="middle" font-weight="600">Browse Products</text>
+<line x1="300" y1="166" x2="300" y2="188" stroke="#92400e" stroke-width="2" marker-end="url(#act)"/>
+
+<!-- ACTIVITY 3: Add to Cart -->
+<rect x="182" y="188" width="236" height="38" rx="19" fill="white" stroke="#c2410c" stroke-width="2"/>
+<text x="300" y="211" font-size="13" fill="#78350f" text-anchor="middle" font-weight="600">Add Item to Cart</text>
+<line x1="300" y1="226" x2="300" y2="248" stroke="#92400e" stroke-width="2" marker-end="url(#act)"/>
+
+<!-- DECISION: Continue shopping? -->
+<polygon points="300,248 356,278 300,308 244,278" fill="#fff7ed" stroke="#c2410c" stroke-width="2"/>
+<text x="300" y="275" font-size="11" fill="#78350f" text-anchor="middle">Continue</text>
+<text x="300" y="289" font-size="11" fill="#78350f" text-anchor="middle">Shopping?</text>
+
+<!-- [Yes] loop back -->
+<line x1="244" y1="278" x2="150" y2="278" stroke="#92400e" stroke-width="2"/>
+<line x1="150" y1="278" x2="150" y2="148" stroke="#92400e" stroke-width="2"/>
+<line x1="150" y1="148" x2="182" y2="148" stroke="#92400e" stroke-width="2" marker-end="url(#act)"/>
+<text x="132" y="258" font-size="10" fill="#92400e" text-anchor="middle">[Yes]</text>
+
+<!-- [No] proceed to checkout -->
+<line x1="300" y1="308" x2="300" y2="332" stroke="#92400e" stroke-width="2" marker-end="url(#act)"/>
+<text x="316" y="324" font-size="10" fill="#92400e">[No]</text>
+
+<!-- ACTIVITY 4: Checkout -->
+<rect x="182" y="332" width="236" height="38" rx="19" fill="white" stroke="#c2410c" stroke-width="2"/>
+<text x="300" y="355" font-size="13" fill="#78350f" text-anchor="middle" font-weight="600">View Cart &amp; Checkout</text>
+<line x1="300" y1="370" x2="300" y2="392" stroke="#92400e" stroke-width="2" marker-end="url(#act)"/>
+
+<!-- ACTIVITY 5: Enter Payment -->
+<rect x="182" y="392" width="236" height="38" rx="19" fill="white" stroke="#c2410c" stroke-width="2"/>
+<text x="300" y="415" font-size="13" fill="#78350f" text-anchor="middle" font-weight="600">Enter Payment Details</text>
+<line x1="300" y1="430" x2="300" y2="452" stroke="#92400e" stroke-width="2" marker-end="url(#act)"/>
+
+<!-- DECISION: Payment valid? -->
+<polygon points="300,452 356,480 300,508 244,480" fill="#fff7ed" stroke="#c2410c" stroke-width="2"/>
+<text x="300" y="477" font-size="11" fill="#78350f" text-anchor="middle">Payment</text>
+<text x="300" y="491" font-size="11" fill="#78350f" text-anchor="middle">Valid?</text>
+
+<!-- [No] re-enter payment -->
+<line x1="244" y1="480" x2="130" y2="480" stroke="#92400e" stroke-width="2"/>
+<line x1="130" y1="480" x2="130" y2="411" stroke="#92400e" stroke-width="2"/>
+<line x1="130" y1="411" x2="182" y2="411" stroke="#92400e" stroke-width="2" marker-end="url(#act)"/>
+<text x="100" y="460" font-size="10" fill="#92400e" text-anchor="middle">[Invalid]</text>
+
+<!-- [Yes] proceed -->
+<line x1="300" y1="508" x2="300" y2="530" stroke="#92400e" stroke-width="2" marker-end="url(#act)"/>
+<text x="316" y="524" font-size="10" fill="#92400e">[Valid]</text>
+
+<!-- FORK BAR -->
+<rect x="166" y="530" width="268" height="8" rx="2" fill="#92400e"/>
+<text x="448" y="538" font-size="10.5" fill="#92400e" font-weight="600">FORK</text>
+
+<!-- Left branch: Confirm Order -->
+<line x1="230" y1="538" x2="230" y2="558" stroke="#92400e" stroke-width="2" marker-end="url(#act)"/>
+<rect x="138" y="558" width="184" height="36" rx="18" fill="white" stroke="#c2410c" stroke-width="2"/>
+<text x="230" y="580" font-size="12" fill="#78350f" text-anchor="middle" font-weight="600">Create Order in DB</text>
+<line x1="230" y1="594" x2="230" y2="632" stroke="#92400e" stroke-width="2"/>
+
+<!-- Right branch: Update Inventory -->
+<line x1="390" y1="538" x2="390" y2="558" stroke="#92400e" stroke-width="2" marker-end="url(#act)"/>
+<rect x="298" y="558" width="184" height="36" rx="18" fill="white" stroke="#c2410c" stroke-width="2"/>
+<text x="390" y="580" font-size="12" fill="#78350f" text-anchor="middle" font-weight="600">Update Inventory</text>
+<line x1="390" y1="594" x2="390" y2="632" stroke="#92400e" stroke-width="2"/>
+
+<!-- JOIN BAR -->
+<line x1="230" y1="632" x2="390" y2="632" stroke="#92400e" stroke-width="2"/>
+<rect x="166" y="632" width="268" height="8" rx="2" fill="#92400e"/>
+<text x="448" y="640" font-size="10.5" fill="#92400e" font-weight="600">JOIN</text>
+<line x1="300" y1="640" x2="300" y2="662" stroke="#92400e" stroke-width="2" marker-end="url(#act)"/>
+
+<!-- ACTIVITY: Send Confirmation Email -->
+<rect x="158" y="662" width="284" height="38" rx="19" fill="#fff7ed" stroke="#c2410c" stroke-width="2.5"/>
+<text x="300" y="685" font-size="13" fill="#78350f" text-anchor="middle" font-weight="700">Send Confirmation Email</text>
+<line x1="300" y1="700" x2="300" y2="722" stroke="#92400e" stroke-width="2" marker-end="url(#act)"/>
+
+<!-- Final node -->
+<circle cx="300" cy="738" r="13" fill="none" stroke="#c2410c" stroke-width="2.5"/>
+<circle cx="300" cy="738" r="8" fill="#c2410c"/>
+
+<!-- SYMBOL LEGEND -->
+<rect x="16" y="688" width="108" height="58" rx="5" fill="#fff7ed" stroke="#fed7aa" stroke-width="1"/>
+<circle cx="26" cy="702" r="6" fill="#c2410c"/><text x="36" y="706" font-size="9.5" fill="#374151">= Start</text>
+<rect x="16" y="712" width="10" height="6" fill="#92400e"/><text x="30" y="719" font-size="9.5" fill="#374151">= Fork/Join</text>
+<circle cx="22" cy="732" r="7" fill="none" stroke="#c2410c" stroke-width="2"/><circle cx="22" cy="732" r="4" fill="#c2410c"/><text x="33" y="736" font-size="9.5" fill="#374151">= End</text>
+</svg>
+  </div>
+  <div class="dn" style="background:#fff7ed;border-top-color:#fed7aa;border-color:#c2410c">
+    <strong style="color:#78350f">Activity Diagram Symbols</strong>
+    ● Filled circle = Initial node (start) · Rounded rectangle = Activity/action · ◇ Diamond = Decision (guard condition in [brackets]) · Thick bar = Fork (split into parallel) / Join (synchronise parallel paths) · ◎ Bullseye = Final node (end) · Arrows show flow direction
+  </div>
+</div>
+
+<!-- PART B -->
+<div class="part">
+  <div class="plabel"><span class="pcirc">b</span> Five Classifications of Systems <span class="pm">7 Marks</span></div>
+</div>
+<p>A <strong>system</strong> is a set of interrelated components that work together to achieve a common objective. Systems can be classified in five ways:</p>
+<div class="cgrid">
+  <div class="cc" style="border-top-color:#2563eb">
+    <h4>1. Open vs. Closed System</h4>
+    <p><strong>Open:</strong> Interacts with its environment — receives inputs from and sends outputs to the outside world. Example: A university (students enter, graduates exit). Most IT systems are open.<br><strong>Closed:</strong> Self-contained; no interaction with the environment. Example: A controlled laboratory experiment.</p>
+  </div>
+  <div class="cc" style="border-top-color:#22c55e">
+    <h4>2. Natural vs. Artificial System</h4>
+    <p><strong>Natural:</strong> Exists without human intervention. Example: The human digestive system, the water cycle.<br><strong>Artificial:</strong> Designed and built by humans. Example: A hospital management system, a banking system.</p>
+  </div>
+  <div class="cc" style="border-top-color:#eab308">
+    <h4>3. Deterministic vs. Probabilistic</h4>
+    <p><strong>Deterministic:</strong> Same inputs always produce the same outputs — fully predictable. Example: A calculator (5+3 = always 8).<br><strong>Probabilistic:</strong> Outcomes subject to chance or probability. Example: A weather forecast, stock market analysis.</p>
+  </div>
+  <div class="cc" style="border-top-color:#f97316">
+    <h4>4. Static vs. Dynamic System</h4>
+    <p><strong>Static:</strong> Does not change over time; no memory of past states. Example: A printed map.<br><strong>Dynamic:</strong> Changes over time and responds to its environment. Example: A traffic management system adjusting signals in real time.</p>
+  </div>
+  <div class="cc" style="border-top-color:#a855f7">
+    <h4>5. Physical vs. Abstract System</h4>
+    <p><strong>Physical:</strong> Has tangible components you can see and touch. Example: A computer, a manufacturing plant, the human body.<br><strong>Abstract:</strong> Made of ideas, concepts, or plans — no physical form. Example: A mathematical model, a software design plan, a business strategy.</p>
+  </div>
+</div>
+
+</div><!-- end body -->
+<div class="footer"><strong>APEXHUB · CSC 411 Answer Guide</strong><span>Q3 · 15 Marks</span></div>
+</div><!-- end card -->
+
+
+<!-- ══════════════════════════
+  QUESTION FOUR  (15 Marks)
+══════════════════════════ -->
+<div class="card" id="q4">
+<div class="qb" style="background:linear-gradient(135deg,#7f1d1d,#b91c1c)">
+  <div class="qb-num">4</div>
+  <div class="qb-text">
+    <div class="qb-title">Question Four</div>
+    <div class="qb-sub">UAS State Diagram — All States &amp; Transitions &nbsp;·&nbsp; Three Information Systems</div>
+  </div>
+  <div class="qb-marks">15 Marks</div>
+</div>
+<div class="body">
+
+<!-- PART A -->
+<div class="part">
+  <div class="plabel"><span class="pcirc">a</span> University Attendance System — State Diagram <span class="pm">9 Marks</span></div>
+</div>
+<p>A <strong>State Diagram (State Machine Diagram)</strong> is a UML behavioral diagram that models the behaviour of a single object by showing all the possible states it can be in during its lifetime, and the transitions (caused by events or guard conditions) between those states. The object we are modelling here is a <strong>Student</strong> in the University Attendance System across a semester.</p>
+
+<div class="dw">
+  <div class="dl" style="background:#7f1d1d"><span class="tag">Q4a · State Diagram</span> UAS — Student Object — All States &amp; Transitions</div>
+  <div class="db" style="border-color:#991b1b">
+<svg viewBox="0 0 740 580" width="100%">
+<defs>
+  <marker id="sta" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#7f1d1d"/></marker>
+</defs>
+
+<!-- Initial node -->
+<circle cx="370" cy="26" r="15" fill="#b91c1c"/>
+<line x1="370" y1="41" x2="370" y2="63" stroke="#7f1d1d" stroke-width="2" marker-end="url(#sta)"/>
+
+<!-- STATE 1: Registered -->
+<rect x="284" y="63" width="172" height="44" rx="22" fill="white" stroke="#b91c1c" stroke-width="2.5"/>
+<text x="370" y="90" font-size="14" font-weight="700" fill="#7f1d1d" text-anchor="middle">Registered</text>
+<text x="370" y="55" font-size="10" fill="#999">entry / enrol in semester</text>
+
+<line x1="370" y1="107" x2="370" y2="130" stroke="#7f1d1d" stroke-width="2" marker-end="url(#sta)"/>
+<text x="392" y="122" font-size="10.5" fill="#7f1d1d">course begins</text>
+
+<!-- STATE 2: Attending -->
+<rect x="284" y="130" width="172" height="44" rx="22" fill="white" stroke="#b91c1c" stroke-width="2.5"/>
+<text x="370" y="157" font-size="14" font-weight="700" fill="#7f1d1d" text-anchor="middle">Attending</text>
+
+<!-- Attending → Present (left) -->
+<line x1="284" y1="152" x2="190" y2="230" stroke="#7f1d1d" stroke-width="2" marker-end="url(#sta)"/>
+<text x="206" y="196" font-size="10" fill="#7f1d1d" text-anchor="middle">scans ID card /</text>
+<text x="206" y="208" font-size="10" fill="#7f1d1d" text-anchor="middle">marked present</text>
+
+<!-- Attending → Absent (right) -->
+<line x1="456" y1="152" x2="552" y2="230" stroke="#7f1d1d" stroke-width="2" marker-end="url(#sta)"/>
+<text x="534" y="196" font-size="10" fill="#7f1d1d" text-anchor="middle">session ends /</text>
+<text x="534" y="208" font-size="10" fill="#7f1d1d" text-anchor="middle">no scan recorded</text>
+
+<!-- STATE 3: Present -->
+<rect x="96" y="230" width="172" height="44" rx="22" fill="#fef2f2" stroke="#b91c1c" stroke-width="2.5"/>
+<text x="182" y="257" font-size="14" font-weight="700" fill="#7f1d1d" text-anchor="middle">Present</text>
+<text x="182" y="270" font-size="9" fill="#999">do / increment present count</text>
+
+<!-- STATE 4: Absent -->
+<rect x="474" y="230" width="172" height="44" rx="22" fill="#fef2f2" stroke="#b91c1c" stroke-width="2.5"/>
+<text x="560" y="257" font-size="14" font-weight="700" fill="#7f1d1d" text-anchor="middle">Absent</text>
+<text x="560" y="270" font-size="9" fill="#999">do / increment absent count</text>
+
+<!-- Present → Attending (next class) -->
+<line x1="182" y1="274" x2="182" y2="336" stroke="#7f1d1d" stroke-width="2"/>
+<line x1="182" y1="336" x2="340" y2="336" stroke="#7f1d1d" stroke-width="2" marker-end="url(#sta)"/>
+<text x="240" y="330" font-size="10" fill="#7f1d1d">next class starts</text>
+
+<!-- Absent → Attending (next class) -->
+<line x1="560" y1="274" x2="560" y2="336" stroke="#7f1d1d" stroke-width="2"/>
+<line x1="560" y1="336" x2="400" y2="336" stroke="#7f1d1d" stroke-width="2" marker-end="url(#sta)"/>
+<text x="494" y="330" font-size="10" fill="#7f1d1d">next class starts</text>
+
+<!-- DECISION: attendance % check -->
+<polygon points="370,356 432,386 370,416 308,386" fill="#fef2f2" stroke="#b91c1c" stroke-width="2"/>
+<text x="370" y="382" font-size="11" fill="#7f1d1d" text-anchor="middle">Check %</text>
+<text x="370" y="396" font-size="11" fill="#7f1d1d" text-anchor="middle">Attendance</text>
+<line x1="370" y1="336" x2="370" y2="356" stroke="#7f1d1d" stroke-width="2" marker-end="url(#sta)"/>
+
+<!-- [≥75%] → Eligible -->
+<line x1="308" y1="386" x2="200" y2="430" stroke="#7f1d1d" stroke-width="2" marker-end="url(#sta)"/>
+<text x="214" y="410" font-size="10" fill="#7f1d1d">[≥75%]</text>
+<rect x="82" y="430" width="196" height="44" rx="22" fill="white" stroke="#b91c1c" stroke-width="2.5"/>
+<text x="180" y="448" font-size="13" font-weight="700" fill="#7f1d1d" text-anchor="middle">Eligible for</text>
+<text x="180" y="463" font-size="13" font-weight="700" fill="#7f1d1d" text-anchor="middle">Examination</text>
+
+<!-- [50-74%] → At Risk -->
+<line x1="370" y1="416" x2="370" y2="430" stroke="#7f1d1d" stroke-width="2" marker-end="url(#sta)"/>
+<text x="390" y="427" font-size="10" fill="#7f1d1d">[50–74%]</text>
+<rect x="284" y="430" width="172" height="44" rx="22" fill="#fef9c3" stroke="#b91c1c" stroke-width="2.5"/>
+<text x="370" y="448" font-size="13" font-weight="700" fill="#7f1d1d" text-anchor="middle">At Risk</text>
+<text x="370" y="463" font-size="11" fill="#7f1d1d" text-anchor="middle">do / send warning</text>
+
+<!-- [<50%] → Suspended -->
+<line x1="432" y1="386" x2="558" y2="430" stroke="#7f1d1d" stroke-width="2" marker-end="url(#sta)"/>
+<text x="522" y="410" font-size="10" fill="#7f1d1d">[&lt;50%]</text>
+<rect x="464" y="430" width="196" height="44" rx="22" fill="#fee2e2" stroke="#b91c1c" stroke-width="2.5"/>
+<text x="562" y="448" font-size="13" font-weight="700" fill="#7f1d1d" text-anchor="middle">Suspended</text>
+<text x="562" y="463" font-size="11" fill="#7f1d1d" text-anchor="middle">do / notify exam office</text>
+
+<!-- Suspended → Reinstated -->
+<line x1="562" y1="474" x2="562" y2="514" stroke="#7f1d1d" stroke-width="2" marker-end="url(#sta)"/>
+<text x="500" y="496" font-size="10" fill="#7f1d1d" text-anchor="middle">student appeals /</text>
+<text x="500" y="508" font-size="10" fill="#7f1d1d" text-anchor="middle">evidence accepted</text>
+<rect x="474" y="514" width="176" height="44" rx="22" fill="white" stroke="#b91c1c" stroke-width="2"/>
+<text x="562" y="540" font-size="13" font-weight="700" fill="#7f1d1d" text-anchor="middle">Reinstated</text>
+
+<!-- Final nodes -->
+<line x1="180" y1="474" x2="180" y2="540" stroke="#7f1d1d" stroke-width="2" marker-end="url(#sta)"/>
+<circle cx="180" cy="556" r="12" fill="none" stroke="#b91c1c" stroke-width="2.5"/>
+<circle cx="180" cy="556" r="7" fill="#b91c1c"/>
+
+<line x1="370" y1="474" x2="370" y2="510" stroke="#7f1d1d" stroke-width="2" marker-end="url(#sta)"/>
+<circle cx="370" cy="524" r="12" fill="none" stroke="#b91c1c" stroke-width="2.5"/>
+<circle cx="370" cy="524" r="7" fill="#b91c1c"/>
+</svg>
+  </div>
+  <div class="dn" style="background:#fef2f2;border-top-color:#fecaca;border-color:#991b1b">
+    <strong style="color:#7f1d1d">State Diagram Rules Applied</strong>
+    Rounded rectangles = States · Solid arrows = Transitions with labelled events/triggers · ● Filled circle = Initial pseudostate · ◎ Bullseye = Final state · Guard conditions in [square brackets] · do/ inside state = action performed while in that state · All states reachable from initial node
+  </div>
+</div>
+
+<!-- PART B -->
+<div class="part">
+  <div class="plabel"><span class="pcirc">b</span> Three Types of Information Systems <span class="pm">6 Marks</span></div>
+</div>
+<p>An information system is a combination of hardware, software, people, data, and processes that collect, process, store, and distribute information to support decision-making in an organisation.</p>
+<div class="tw">
+  <table>
+    <tr><th>Type</th><th>Full Name</th><th>Purpose &amp; Users</th><th>Example</th></tr>
+    <tr>
+      <td><strong>TPS</strong></td>
+      <td>Transaction Processing System</td>
+      <td>Processes high volumes of routine, repetitive day-to-day transactions quickly and accurately.<br><em>Users: Operational/clerical staff</em></td>
+      <td>Using a GTBank ATM card to buy airtime — the debit and credit is handled by a TPS. POS systems at supermarkets.</td>
+    </tr>
+    <tr>
+      <td><strong>MIS</strong></td>
+      <td>Management Information System</td>
+      <td>Processes TPS data into structured reports and summaries to help middle managers monitor performance and make routine decisions.<br><em>Users: Middle managers, department heads</em></td>
+      <td>Monthly sales performance report per region; inventory report showing low-stock items given to the store manager.</td>
+    </tr>
+    <tr>
+      <td><strong>DSS</strong></td>
+      <td>Decision Support System</td>
+      <td>Helps senior managers make complex, non-routine decisions by analysing large data sets, modelling scenarios, and presenting options.<br><em>Users: Senior managers, analysts</em></td>
+      <td>A bank deciding whether to grant a large corporate loan — it analyses financial history, credit rating, and market trends. A hospital DSS recommending treatment protocols.</td>
+    </tr>
+  </table>
+</div>
+
+</div><!-- end body -->
+<div class="footer"><strong>APEXHUB · CSC 411 Answer Guide</strong><span>Q4 · 15 Marks</span></div>
+</div><!-- end card -->
+
+
+<!-- ══════════════════════════
+  QUESTION FIVE  (15 Marks)
+══════════════════════════ -->
+<div class="card" id="q5">
+<div class="qb" style="background:linear-gradient(135deg,#134e4a,#0f766e)">
+  <div class="qb-num">5</div>
+  <div class="qb-text">
+    <div class="qb-title">Question Five</div>
+    <div class="qb-sub">Online Shopping Sequence Diagram &nbsp;·&nbsp; Restaurant Activity Diagram</div>
+  </div>
+  <div class="qb-marks">15 Marks</div>
+</div>
+<div class="body">
+
+<!-- PART A -->
+<div class="part">
+  <div class="plabel"><span class="pcirc">a</span> Online Shopping System — Sequence Diagram <span class="pm">8 Marks</span></div>
+</div>
+<p>A <strong>Sequence Diagram</strong> is a UML interaction diagram that shows how objects interact with each other over <strong>time</strong>. It focuses on the sequence of messages passed between objects. Time flows <strong>downward</strong>. The objects in this system are: Customer, Website, ShoppingCart, PaymentSystem, InventoryDB, OrderDB, and EmailService.</p>
+
+<div class="dw">
+  <div class="dl" style="background:#134e4a"><span class="tag">Q5a · Sequence Diagram</span> Online Shopping System — All Events</div>
+  <div class="db" style="border-color:#0f766e">
+<svg viewBox="0 0 800 600" width="100%">
+<defs>
+  <marker id="sm" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#134e4a"/></marker>
+  <marker id="sr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#0f766e"/></marker>
+</defs>
+
+<!-- OBJECTS at top -->
+<!-- :Customer -->
+<rect x="10" y="16" width="90" height="34" rx="4" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+<text x="55" y="30" font-size="10" font-weight="700" fill="#134e4a" text-anchor="middle">:Customer</text>
+<text x="55" y="43" font-size="9" fill="#134e4a" text-anchor="middle">User</text>
+
+<!-- :Website -->
+<rect x="130" y="16" width="90" height="34" rx="4" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+<text x="175" y="30" font-size="10" font-weight="700" fill="#134e4a" text-anchor="middle">:Website</text>
+<text x="175" y="43" font-size="9" fill="#134e4a" text-anchor="middle">Frontend</text>
+
+<!-- :ShoppingCart -->
+<rect x="250" y="16" width="90" height="34" rx="4" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+<text x="295" y="30" font-size="10" font-weight="700" fill="#134e4a" text-anchor="middle">:Cart</text>
+<text x="295" y="43" font-size="9" fill="#134e4a" text-anchor="middle">ShoppingCart</text>
+
+<!-- :PaymentSystem -->
+<rect x="370" y="16" width="100" height="34" rx="4" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+<text x="420" y="30" font-size="10" font-weight="700" fill="#134e4a" text-anchor="middle">:Payment</text>
+<text x="420" y="43" font-size="9" fill="#134e4a" text-anchor="middle">PaymentSystem</text>
+
+<!-- :InventoryDB -->
+<rect x="500" y="16" width="90" height="34" rx="4" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+<text x="545" y="30" font-size="10" font-weight="700" fill="#134e4a" text-anchor="middle">:InventoryDB</text>
+<text x="545" y="43" font-size="9" fill="#134e4a" text-anchor="middle">Stock DB</text>
+
+<!-- :OrderDB -->
+<rect x="620" y="16" width="80" height="34" rx="4" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+<text x="660" y="30" font-size="10" font-weight="700" fill="#134e4a" text-anchor="middle">:OrderDB</text>
+<text x="660" y="43" font-size="9" fill="#134e4a" text-anchor="middle">Orders</text>
+
+<!-- :EmailService -->
+<rect x="720" y="16" width="70" height="34" rx="4" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+<text x="755" y="30" font-size="10" font-weight="700" fill="#134e4a" text-anchor="middle">:Email</text>
+<text x="755" y="43" font-size="9" fill="#134e4a" text-anchor="middle">EmailSvc</text>
+
+<!-- Lifelines -->
+<line x1="55" y1="50" x2="55" y2="590" stroke="#134e4a" stroke-width="1.2" stroke-dasharray="6,4"/>
+<line x1="175" y1="50" x2="175" y2="590" stroke="#134e4a" stroke-width="1.2" stroke-dasharray="6,4"/>
+<line x1="295" y1="50" x2="295" y2="590" stroke="#134e4a" stroke-width="1.2" stroke-dasharray="6,4"/>
+<line x1="420" y1="50" x2="420" y2="590" stroke="#134e4a" stroke-width="1.2" stroke-dasharray="6,4"/>
+<line x1="545" y1="50" x2="545" y2="590" stroke="#134e4a" stroke-width="1.2" stroke-dasharray="6,4"/>
+<line x1="660" y1="50" x2="660" y2="590" stroke="#134e4a" stroke-width="1.2" stroke-dasharray="6,4"/>
+<line x1="755" y1="50" x2="755" y2="590" stroke="#134e4a" stroke-width="1.2" stroke-dasharray="6,4"/>
+
+<!-- Activation bars -->
+<rect x="51" y="72" width="8" height="494" fill="#99f6e4" stroke="#0f766e" stroke-width="1"/>
+<rect x="171" y="86" width="8" height="406" fill="#99f6e4" stroke="#0f766e" stroke-width="1"/>
+<rect x="291" y="162" width="8" height="120" fill="#99f6e4" stroke="#0f766e" stroke-width="1"/>
+<rect x="416" y="296" width="8" height="100" fill="#99f6e4" stroke="#0f766e" stroke-width="1"/>
+<rect x="541" y="360" width="8" height="60" fill="#99f6e4" stroke="#0f766e" stroke-width="1"/>
+<rect x="656" y="400" width="8" height="60" fill="#99f6e4" stroke="#0f766e" stroke-width="1"/>
+<rect x="751" y="454" width="8" height="50" fill="#99f6e4" stroke="#0f766e" stroke-width="1"/>
+
+<!-- M1: login() -->
+<line x1="59" y1="86" x2="171" y2="86" stroke="#134e4a" stroke-width="2" marker-end="url(#sm)"/>
+<text x="115" y="80" font-size="10.5" fill="#134e4a" text-anchor="middle">login(username, password)</text>
+<!-- R1: welcome screen -->
+<line x1="171" y1="104" x2="59" y2="104" stroke="#0f766e" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#sr)"/>
+<text x="115" y="100" font-size="10" fill="#0f766e" text-anchor="middle">welcome screen</text>
+
+<!-- M2: browseProducts() -->
+<line x1="59" y1="134" x2="171" y2="134" stroke="#134e4a" stroke-width="2" marker-end="url(#sm)"/>
+<text x="115" y="128" font-size="10.5" fill="#134e4a" text-anchor="middle">browseProducts()</text>
+<!-- M2b: checkStock() -->
+<line x1="179" y1="148" x2="541" y2="148" stroke="#134e4a" stroke-width="1.8" marker-end="url(#sm)"/>
+<text x="360" y="142" font-size="10" fill="#134e4a" text-anchor="middle">checkStock(categoryID)</text>
+<!-- R2: stock status -->
+<line x1="541" y1="162" x2="179" y2="162" stroke="#0f766e" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#sr)"/>
+<text x="360" y="157" font-size="10" fill="#0f766e" text-anchor="middle">stock status / product list</text>
+
+<!-- M3: addToCart() -->
+<line x1="59" y1="192" x2="291" y2="192" stroke="#134e4a" stroke-width="2" marker-end="url(#sm)"/>
+<text x="175" y="186" font-size="10.5" fill="#134e4a" text-anchor="middle">addToCart(itemID, qty)</text>
+<!-- R3: cart updated -->
+<line x1="291" y1="212" x2="59" y2="212" stroke="#0f766e" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#sr)"/>
+<text x="175" y="207" font-size="10" fill="#0f766e" text-anchor="middle">cart updated</text>
+
+<!-- M4: viewCart() & checkout() -->
+<line x1="59" y1="250" x2="291" y2="250" stroke="#134e4a" stroke-width="2" marker-end="url(#sm)"/>
+<text x="175" y="244" font-size="10.5" fill="#134e4a" text-anchor="middle">viewCart() / checkout()</text>
+<line x1="291" y1="268" x2="59" y2="268" stroke="#0f766e" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#sr)"/>
+<text x="175" y="263" font-size="10" fill="#0f766e" text-anchor="middle">order summary</text>
+
+<!-- M5: processPayment() -->
+<line x1="59" y1="296" x2="179" y2="296" stroke="#134e4a" stroke-width="2" marker-end="url(#sm)"/>
+<text x="118" y="290" font-size="10.5" fill="#134e4a" text-anchor="middle">submitPayment()</text>
+<line x1="179" y1="310" x2="416" y2="310" stroke="#134e4a" stroke-width="1.8" marker-end="url(#sm)"/>
+<text x="297" y="304" font-size="10.5" fill="#134e4a" text-anchor="middle">processPayment(cardDetails)</text>
+<!-- R5: approved -->
+<line x1="416" y1="330" x2="179" y2="330" stroke="#0f766e" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#sr)"/>
+<text x="297" y="325" font-size="10" fill="#0f766e" text-anchor="middle">payment approved</text>
+
+<!-- M6: saveOrder() -->
+<line x1="179" y1="360" x2="656" y2="360" stroke="#134e4a" stroke-width="1.8" marker-end="url(#sm)"/>
+<text x="417" y="354" font-size="10.5" fill="#134e4a" text-anchor="middle">saveOrder(orderDetails)</text>
+<line x1="656" y1="378" x2="179" y2="378" stroke="#0f766e" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#sr)"/>
+<text x="417" y="373" font-size="10" fill="#0f766e" text-anchor="middle">orderID confirmed</text>
+
+<!-- M7: updateInventory() -->
+<line x1="179" y1="400" x2="541" y2="400" stroke="#134e4a" stroke-width="1.8" marker-end="url(#sm)"/>
+<text x="360" y="394" font-size="10.5" fill="#134e4a" text-anchor="middle">updateStock(itemID, qty)</text>
+<line x1="541" y1="416" x2="179" y2="416" stroke="#0f766e" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#sr)"/>
+<text x="360" y="412" font-size="10" fill="#0f766e" text-anchor="middle">stock updated</text>
+
+<!-- M8: sendConfirmation() -->
+<line x1="179" y1="454" x2="751" y2="454" stroke="#134e4a" stroke-width="1.8" marker-end="url(#sm)"/>
+<text x="465" y="448" font-size="10.5" fill="#134e4a" text-anchor="middle">sendConfirmationEmail(orderID, email)</text>
+<line x1="751" y1="474" x2="59" y2="474" stroke="#0f766e" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#sr)"/>
+<text x="405" y="469" font-size="10" fill="#0f766e" text-anchor="middle">order confirmation email delivered to customer</text>
+
+<!-- Return to user -->
+<line x1="179" y1="500" x2="59" y2="500" stroke="#0f766e" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#sr)"/>
+<text x="118" y="494" font-size="10" fill="#0f766e" text-anchor="middle">order confirmation</text>
+
+<!-- TIME arrow -->
+<line x1="790" y1="72" x2="790" y2="520" stroke="#94a3b8" stroke-width="1.8"/>
+<polygon points="790,520 784,506 796,506" fill="#94a3b8"/>
+<text x="790" y="300" font-size="22" fill="#94a3b8" text-anchor="middle" transform="rotate(90,790,300)">TIME →</text>
+
+<!-- Legend row -->
+<rect x="12" y="548" width="756" height="34" rx="5" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<line x1="26" y1="565" x2="72" y2="565" stroke="#134e4a" stroke-width="2" marker-end="url(#sm)"/>
+<text x="80" y="569" font-size="10.5" fill="#374151">= message (method call)</text>
+<line x1="230" y1="565" x2="276" y2="565" stroke="#0f766e" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#sr)"/>
+<text x="284" y="569" font-size="10.5" fill="#374151">= return message</text>
+<rect x="420" y="558" width="8" height="16" fill="#99f6e4" stroke="#0f766e" stroke-width="1"/>
+<text x="434" y="569" font-size="10.5" fill="#374151">= activation bar (execution period)</text>
+</svg>
+  </div>
+  <div class="dn" style="background:#f0fdfa;border-top-color:#99f6e4;border-color:#0f766e">
+    <strong style="color:#134e4a">Sequence Diagram Rules Applied</strong>
+    Objects at the TOP with names · Dashed vertical lines = Lifelines · Activation bars = period an object is executing · Solid arrow = message (call) · Dashed arrow = return message · Time flows strictly downward · All 7 objects are shown with all events covered
+  </div>
+</div>
+
+<!-- PART B -->
+<div class="part">
+  <div class="plabel"><span class="pcirc">b</span> Activity Diagram — Online Restaurant Management System <span class="pm">7 Marks</span></div>
+</div>
+
+<div class="dw">
+  <div class="dl" style="background:#92400e"><span class="tag">Q5b · Activity Diagram</span> Online Restaurant Management — Complete Order Workflow</div>
+  <div class="db" style="border-color:#c2410c">
+<svg viewBox="0 0 580 680" width="100%">
+<defs>
+  <marker id="ra" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#92400e"/></marker>
+</defs>
+<!-- Start -->
+<circle cx="290" cy="28" r="15" fill="#c2410c"/>
+<line x1="290" y1="43" x2="290" y2="63" stroke="#92400e" stroke-width="2" marker-end="url(#ra)"/>
+
+<rect x="170" y="63" width="240" height="38" rx="19" fill="white" stroke="#c2410c" stroke-width="2"/>
+<text x="290" y="86" font-size="13" fill="#78350f" text-anchor="middle" font-weight="600">Browse Online Menu</text>
+<line x1="290" y1="101" x2="290" y2="121" stroke="#92400e" stroke-width="2" marker-end="url(#ra)"/>
+
+<rect x="170" y="121" width="240" height="38" rx="19" fill="white" stroke="#c2410c" stroke-width="2"/>
+<text x="290" y="144" font-size="13" fill="#78350f" text-anchor="middle" font-weight="600">Select Items &amp; Quantities</text>
+<line x1="290" y1="159" x2="290" y2="179" stroke="#92400e" stroke-width="2" marker-end="url(#ra)"/>
+
+<!-- Decision: Delivery or Pickup? -->
+<polygon points="290,179 354,209 290,239 226,209" fill="#fff7ed" stroke="#c2410c" stroke-width="2"/>
+<text x="290" y="206" font-size="11" fill="#78350f" text-anchor="middle">Delivery</text>
+<text x="290" y="220" font-size="11" fill="#78350f" text-anchor="middle">or Pickup?</text>
+
+<!-- [Delivery] left -->
+<line x1="226" y1="209" x2="98" y2="209" stroke="#92400e" stroke-width="2" marker-end="url(#ra)"/>
+<text x="162" y="201" font-size="10" fill="#92400e" text-anchor="middle">[Delivery]</text>
+<rect x="18" y="192" width="80" height="36" rx="10" fill="white" stroke="#c2410c" stroke-width="2"/>
+<text x="58" y="208" font-size="11" fill="#78350f" text-anchor="middle">Enter</text>
+<text x="58" y="221" font-size="11" fill="#78350f" text-anchor="middle">Address</text>
+<line x1="58" y1="228" x2="58" y2="310" stroke="#92400e" stroke-width="1.5"/>
+<line x1="58" y1="310" x2="212" y2="310" stroke="#92400e" stroke-width="1.5" marker-end="url(#ra)"/>
+
+<!-- [Pickup] right -->
+<line x1="354" y1="209" x2="478" y2="209" stroke="#92400e" stroke-width="2" marker-end="url(#ra)"/>
+<text x="416" y="201" font-size="10" fill="#92400e" text-anchor="middle">[Pickup]</text>
+<rect x="478" y="192" width="84" height="36" rx="10" fill="white" stroke="#c2410c" stroke-width="2"/>
+<text x="520" y="208" font-size="11" fill="#78350f" text-anchor="middle">Select</text>
+<text x="520" y="221" font-size="11" fill="#78350f" text-anchor="middle">Time Slot</text>
+<line x1="520" y1="228" x2="520" y2="310" stroke="#92400e" stroke-width="1.5"/>
+<line x1="520" y1="310" x2="368" y2="310" stroke="#92400e" stroke-width="1.5" marker-end="url(#ra)"/>
+
+<!-- [Self] confirm order -->
+<line x1="290" y1="239" x2="290" y2="272" stroke="#92400e" stroke-width="2" marker-end="url(#ra)"/>
+<text x="308" y="260" font-size="10" fill="#92400e">[Self]</text>
+<rect x="170" y="272" width="240" height="38" rx="19" fill="white" stroke="#c2410c" stroke-width="2"/>
+<text x="290" y="295" font-size="13" fill="#78350f" text-anchor="middle" font-weight="600">Review &amp; Confirm Order</text>
+
+<!-- (join from delivery/pickup) -->
+<rect x="170" y="310" width="240" height="38" rx="19" fill="white" stroke="#c2410c" stroke-width="2"/>
+<text x="290" y="333" font-size="13" fill="#78350f" text-anchor="middle" font-weight="600">Process Payment</text>
+<line x1="290" y1="348" x2="290" y2="368" stroke="#92400e" stroke-width="2" marker-end="url(#ra)"/>
+
+<rect x="170" y="368" width="240" height="38" rx="19" fill="white" stroke="#c2410c" stroke-width="2"/>
+<text x="290" y="391" font-size="13" fill="#78350f" text-anchor="middle" font-weight="600">Send Order to Kitchen</text>
+<line x1="290" y1="406" x2="290" y2="426" stroke="#92400e" stroke-width="2" marker-end="url(#ra)"/>
+
+<rect x="170" y="426" width="240" height="38" rx="19" fill="white" stroke="#c2410c" stroke-width="2"/>
+<text x="290" y="449" font-size="13" fill="#78350f" text-anchor="middle" font-weight="600">Kitchen Prepares Order</text>
+<line x1="290" y1="464" x2="290" y2="484" stroke="#92400e" stroke-width="2" marker-end="url(#ra)"/>
+
+<rect x="170" y="484" width="240" height="38" rx="19" fill="#fff7ed" stroke="#c2410c" stroke-width="2.5"/>
+<text x="290" y="507" font-size="13" fill="#78350f" text-anchor="middle" font-weight="700">Order Ready / Dispatched</text>
+<line x1="290" y1="522" x2="290" y2="542" stroke="#92400e" stroke-width="2" marker-end="url(#ra)"/>
+
+<rect x="170" y="542" width="240" height="38" rx="19" fill="white" stroke="#c2410c" stroke-width="2"/>
+<text x="290" y="565" font-size="13" fill="#78350f" text-anchor="middle" font-weight="600">Send SMS/Email Notification</text>
+<line x1="290" y1="580" x2="290" y2="600" stroke="#92400e" stroke-width="2" marker-end="url(#ra)"/>
+
+<!-- Final node -->
+<circle cx="290" cy="618" r="13" fill="none" stroke="#c2410c" stroke-width="2.5"/>
+<circle cx="290" cy="618" r="8" fill="#c2410c"/>
+</svg>
+  </div>
+</div>
+
+</div><!-- end body -->
+<div class="footer"><strong>APEXHUB · CSC 411 Answer Guide</strong><span>Q5 · 15 Marks</span></div>
+</div><!-- end card -->
+
+
+<!-- ══════════════════════════
+  QUESTION SIX  (15 Marks)
+══════════════════════════ -->
+<div class="card" id="q6">
+<div class="qb" style="background:linear-gradient(135deg,#312e81,#4338ca)">
+  <div class="qb-num">6</div>
+  <div class="qb-text">
+    <div class="qb-title">Question Six</div>
+    <div class="qb-sub">System Definition &amp; Five Characteristics &nbsp;·&nbsp; Library Management System Class Diagram</div>
+  </div>
+  <div class="qb-marks">15 Marks</div>
+</div>
+<div class="body">
+
+<!-- PART A -->
+<div class="part">
+  <div class="plabel"><span class="pcirc">a</span> Define a System &amp; Explain Five Characteristics <span class="pm">7 Marks</span></div>
+</div>
+<div class="box bi">
+  <div class="bt">📖 Definition of a System</div>
+  A <strong>system</strong> is a set of interrelated and interdependent components (elements, subsystems, or parts) that work together in a coordinated manner to achieve a common goal or objective. Systems transform <strong>INPUTS</strong> into <strong>OUTPUTS</strong> within a defined <strong>BOUNDARY</strong> and operate within an <strong>ENVIRONMENT</strong>.
+</div>
+
+<div class="chgrid">
+  <div class="chc"><h4>1. Components / Elements</h4><p>Every system is made up of sub-systems or elements that each perform a specific function. Example: A hospital system has sub-systems — outpatient dept, pharmacy, laboratory, emergency unit, billing — each contributing to the whole.</p></div>
+  <div class="chc"><h4>2. Interrelationship / Interdependence</h4><p>Components are connected and depend on each other. A change in one part affects other parts. Example: If a hospital's lab breaks down, diagnosis stalls, which delays treatment — the components are interdependent.</p></div>
+  <div class="chc"><h4>3. Boundary</h4><p>Every system has a boundary separating it from its environment — defining what is INSIDE and what is OUTSIDE. Example: A library management system's boundary includes catalogue, members, and loans — but NOT the city council (outside).</p></div>
+  <div class="chc"><h4>4. Purpose / Objective</h4><p>Every system exists to achieve a specific goal. All components work towards this common purpose. Example: A university attendance system's purpose is to track student attendance and flag students who may be barred from examinations.</p></div>
+  <div class="chc"><h4>5. Environment</h4><p>Every system exists within an environment — external factors and entities that influence the system but are NOT part of it. Example: A banking system's environment includes customers, government regulators, and the economy — all influence the system from outside.</p></div>
+</div>
+
+<!-- PART B -->
+<div class="part">
+  <div class="plabel"><span class="pcirc">b</span> Library Management System — UML Class Diagram (AAUA) <span class="pm">8 Marks</span></div>
+</div>
+<p>A <strong>Class Diagram</strong> is a UML structural diagram showing the classes in a system, their attributes, operations, and the relationships between them. It is the most important UML diagram for object-oriented system design.</p>
+
+<div class="box bi">
+  <div class="bt">📋 Classes Identified</div>
+  <strong>Person</strong> (superclass — name, email, phoneNo) · <strong>Member</strong> extends Person (memberID, membershipType, expiryDate) · <strong>Librarian</strong> extends Person (staffID, role) · <strong>Book</strong> (ISBN, title, author, genre, publisher) · <strong>BookCopy</strong> (copyID, condition, location) · <strong>Loan</strong> association class (loanID, issueDate, dueDate, returnDate, status) · <strong>Fine</strong> (fineID, amount, paidStatus, dateGenerated) · <strong>Catalogue</strong> (manages books)
+</div>
+
+<div class="dw">
+  <div class="dl" style="background:#312e81"><span class="tag">Q6b · Class Diagram</span> AAUA Library Management System — UML Notation</div>
+  <div class="db" style="border-color:#4338ca">
+<svg viewBox="0 0 820 620" width="100%">
+<defs>
+  <marker id="inh" markerWidth="12" markerHeight="10" refX="0" refY="5" orient="auto"><polygon points="0 0,12 5,0 10" fill="white" stroke="#4338ca" stroke-width="1.5"/></marker>
+  <marker id="assoc" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#4338ca"/></marker>
+  <marker id="comp" markerWidth="12" markerHeight="10" refX="0" refY="5" orient="auto"><polygon points="0 0,6 5,0 10,12 5" fill="#4338ca"/></marker>
+</defs>
+
+<!-- ══ CLASS: Person (superclass) ══ -->
+<rect x="310" y="16" width="180" height="102" fill="white" stroke="#4338ca" stroke-width="2"/>
+<rect x="310" y="16" width="180" height="26" fill="#eef2ff" stroke="#4338ca" stroke-width="2"/>
+<text x="400" y="33" font-size="12" font-weight="700" fill="#312e81" text-anchor="middle">Person</text>
+<text x="400" y="46" font-size="9" fill="#6366f1" text-anchor="middle">«abstract»</text>
+<line x1="310" y1="54" x2="490" y2="54" stroke="#4338ca" stroke-width="1.5"/>
+<text x="318" y="67" font-size="10.5" fill="#1a1a2e">- name: String</text>
+<text x="318" y="80" font-size="10.5" fill="#1a1a2e">- email: String</text>
+<text x="318" y="93" font-size="10.5" fill="#1a1a2e">- phoneNo: String</text>
+<line x1="310" y1="100" x2="490" y2="100" stroke="#4338ca" stroke-width="1"/>
+<text x="318" y="113" font-size="10.5" fill="#1a1a2e">+ getDetails(): String</text>
+
+<!-- ══ CLASS: Member ══ -->
+<rect x="100" y="180" width="180" height="132" fill="white" stroke="#4338ca" stroke-width="2"/>
+<rect x="100" y="180" width="180" height="26" fill="#eef2ff" stroke="#4338ca" stroke-width="2"/>
+<text x="190" y="197" font-size="12" font-weight="700" fill="#312e81" text-anchor="middle">Member</text>
+<line x1="100" y1="206" x2="280" y2="206" stroke="#4338ca" stroke-width="1.5"/>
+<text x="108" y="220" font-size="10.5" fill="#1a1a2e">- memberID: String</text>
+<text x="108" y="233" font-size="10.5" fill="#1a1a2e">- membershipType: String</text>
+<text x="108" y="246" font-size="10.5" fill="#1a1a2e">- expiryDate: Date</text>
+<line x1="100" y1="254" x2="280" y2="254" stroke="#4338ca" stroke-width="1"/>
+<text x="108" y="267" font-size="10.5" fill="#1a1a2e">+ borrowBook(): void</text>
+<text x="108" y="280" font-size="10.5" fill="#1a1a2e">+ returnBook(): void</text>
+<text x="108" y="293" font-size="10.5" fill="#1a1a2e">+ payFine(): void</text>
+<text x="108" y="306" font-size="10.5" fill="#1a1a2e">+ renewMembership(): void</text>
+
+<!-- ══ CLASS: Librarian ══ -->
+<rect x="520" y="180" width="180" height="118" fill="white" stroke="#4338ca" stroke-width="2"/>
+<rect x="520" y="180" width="180" height="26" fill="#eef2ff" stroke="#4338ca" stroke-width="2"/>
+<text x="610" y="197" font-size="12" font-weight="700" fill="#312e81" text-anchor="middle">Librarian</text>
+<line x1="520" y1="206" x2="700" y2="206" stroke="#4338ca" stroke-width="1.5"/>
+<text x="528" y="220" font-size="10.5" fill="#1a1a2e">- staffID: String</text>
+<text x="528" y="233" font-size="10.5" fill="#1a1a2e">- role: String</text>
+<line x1="520" y1="241" x2="700" y2="241" stroke="#4338ca" stroke-width="1"/>
+<text x="528" y="255" font-size="10.5" fill="#1a1a2e">+ issueBook(): void</text>
+<text x="528" y="268" font-size="10.5" fill="#1a1a2e">+ processReturn(): void</text>
+<text x="528" y="281" font-size="10.5" fill="#1a1a2e">+ addBook(): void</text>
+<text x="528" y="294" font-size="10.5" fill="#1a1a2e">+ generateReport(): void</text>
+
+<!-- Generalization arrows (inheritance) -->
+<!-- Member → Person -->
+<line x1="190" y1="180" x2="358" y2="118" stroke="#4338ca" stroke-width="2" marker-end="url(#inh)"/>
+<!-- Librarian → Person -->
+<line x1="610" y1="180" x2="442" y2="118" stroke="#4338ca" stroke-width="2" marker-end="url(#inh)"/>
+<!-- Generalization label -->
+<text x="270" y="148" font-size="10" fill="#4338ca" font-style="italic">«generalization»</text>
+<text x="440" y="148" font-size="10" fill="#4338ca" font-style="italic">«generalization»</text>
+
+<!-- ══ CLASS: Book ══ -->
+<rect x="310" y="380" width="200" height="130" fill="white" stroke="#4338ca" stroke-width="2"/>
+<rect x="310" y="380" width="200" height="26" fill="#eef2ff" stroke="#4338ca" stroke-width="2"/>
+<text x="410" y="397" font-size="12" font-weight="700" fill="#312e81" text-anchor="middle">Book</text>
+<line x1="310" y1="406" x2="510" y2="406" stroke="#4338ca" stroke-width="1.5"/>
+<text x="318" y="420" font-size="10.5" fill="#1a1a2e">- ISBN: String {key}</text>
+<text x="318" y="433" font-size="10.5" fill="#1a1a2e">- title: String</text>
+<text x="318" y="446" font-size="10.5" fill="#1a1a2e">- author: String</text>
+<text x="318" y="459" font-size="10.5" fill="#1a1a2e">- genre: String</text>
+<text x="318" y="472" font-size="10.5" fill="#1a1a2e">- publisher: String</text>
+<line x1="310" y1="480" x2="510" y2="480" stroke="#4338ca" stroke-width="1"/>
+<text x="318" y="493" font-size="10.5" fill="#1a1a2e">+ getAvailableCopies(): int</text>
+<text x="318" y="506" font-size="10.5" fill="#1a1a2e">+ getDetails(): String</text>
+
+<!-- ══ CLASS: BookCopy ══ -->
+<rect x="590" y="460" width="180" height="104" fill="white" stroke="#4338ca" stroke-width="2"/>
+<rect x="590" y="460" width="180" height="26" fill="#eef2ff" stroke="#4338ca" stroke-width="2"/>
+<text x="680" y="477" font-size="12" font-weight="700" fill="#312e81" text-anchor="middle">BookCopy</text>
+<line x1="590" y1="486" x2="770" y2="486" stroke="#4338ca" stroke-width="1.5"/>
+<text x="598" y="500" font-size="10.5" fill="#1a1a2e">- copyID: String</text>
+<text x="598" y="513" font-size="10.5" fill="#1a1a2e">- condition: String</text>
+<text x="598" y="526" font-size="10.5" fill="#1a1a2e">- location: String</text>
+<line x1="590" y1="534" x2="770" y2="534" stroke="#4338ca" stroke-width="1"/>
+<text x="598" y="548" font-size="10.5" fill="#1a1a2e">+ checkAvailability(): bool</text>
+<text x="598" y="561" font-size="10.5" fill="#1a1a2e">+ updateCondition(): void</text>
+
+<!-- Composition: Book ◆——1:N—— BookCopy -->
+<polygon points="510,500 526,490 542,500 526,510" fill="#4338ca" stroke="#4338ca" stroke-width="1"/>
+<line x1="542" y1="500" x2="590" y2="490" stroke="#4338ca" stroke-width="2"/>
+<text x="544" y="481" font-size="10.5" fill="#4338ca" font-weight="700">1</text>
+<text x="575" y="481" font-size="10.5" fill="#4338ca" font-weight="700">N</text>
+<text x="548" y="520" font-size="9.5" fill="#4338ca" font-style="italic">«composition»</text>
+
+<!-- ══ CLASS: Loan (association class) ══ -->
+<rect x="90" y="380" width="185" height="144" fill="white" stroke="#4338ca" stroke-width="2" stroke-dasharray="5,3"/>
+<rect x="90" y="380" width="185" height="26" fill="#eef2ff" stroke="#4338ca" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="182" y="397" font-size="12" font-weight="700" fill="#312e81" text-anchor="middle">Loan</text>
+<text x="182" y="408" font-size="9" fill="#6366f1" text-anchor="middle">«association class»</text>
+<line x1="90" y1="416" x2="275" y2="416" stroke="#4338ca" stroke-width="1.5"/>
+<text x="98" y="430" font-size="10.5" fill="#1a1a2e">- loanID: String</text>
+<text x="98" y="443" font-size="10.5" fill="#1a1a2e">- issueDate: Date</text>
+<text x="98" y="456" font-size="10.5" fill="#1a1a2e">- dueDate: Date</text>
+<text x="98" y="469" font-size="10.5" fill="#1a1a2e">- returnDate: Date</text>
+<text x="98" y="482" font-size="10.5" fill="#1a1a2e">- status: String</text>
+<line x1="90" y1="490" x2="275" y2="490" stroke="#4338ca" stroke-width="1"/>
+<text x="98" y="503" font-size="10.5" fill="#1a1a2e">+ calculateFine(): double</text>
+<text x="98" y="516" font-size="10.5" fill="#1a1a2e">+ extendLoan(): void</text>
+
+<!-- N:M association: Member borrows Book (dashed line through Loan) -->
+<line x1="190" y1="312" x2="190" y2="380" stroke="#4338ca" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#assoc)"/>
+<text x="198" y="352" font-size="10" fill="#4338ca">borrows</text>
+<line x1="275" y1="460" x2="310" y2="460" stroke="#4338ca" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#assoc)"/>
+<text x="118" y="374" font-size="10.5" fill="#4338ca" font-weight="700">N</text>
+<text x="292" y="454" font-size="10.5" fill="#4338ca" font-weight="700">M</text>
+
+<!-- ══ CLASS: Fine ══ -->
+<rect x="40" y="564" width="175" height="104" fill="white" stroke="#4338ca" stroke-width="2"/>
+<rect x="40" y="564" width="175" height="26" fill="#eef2ff" stroke="#4338ca" stroke-width="2"/>
+<text x="127" y="581" font-size="12" font-weight="700" fill="#312e81" text-anchor="middle">Fine</text>
+<line x1="40" y1="590" x2="215" y2="590" stroke="#4338ca" stroke-width="1.5"/>
+<text x="48" y="604" font-size="10.5" fill="#1a1a2e">- fineID: String</text>
+<text x="48" y="617" font-size="10.5" fill="#1a1a2e">- amount: double</text>
+<text x="48" y="630" font-size="10.5" fill="#1a1a2e">- paidStatus: bool</text>
+<text x="48" y="643" font-size="10.5" fill="#1a1a2e">- dateGenerated: Date</text>
+<line x1="40" y1="650" x2="215" y2="650" stroke="#4338ca" stroke-width="1"/>
+<text x="48" y="663" font-size="10.5" fill="#1a1a2e">+ markAsPaid(): void</text>
+
+<!-- Loan → Fine (1:1 association) -->
+<line x1="127" y1="524" x2="127" y2="564" stroke="#4338ca" stroke-width="2" marker-end="url(#assoc)"/>
+<text x="136" y="548" font-size="10" fill="#4338ca">generates</text>
+<text x="80" y="560" font-size="10.5" fill="#4338ca" font-weight="700">1</text>
+<text x="80" y="577" font-size="10.5" fill="#4338ca" font-weight="700">1</text>
+
+<!-- RELATIONSHIP LEGEND -->
+<rect x="560" y="570" width="250" height="44" rx="5" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1"/>
+<line x1="572" y1="586" x2="600" y2="586" stroke="#4338ca" stroke-width="2" marker-end="url(#inh)"/>
+<text x="608" y="590" font-size="10" fill="#1a1a2e">= Generalization (inherits)</text>
+<polygon points="572,604 580,598 588,604 580,610" fill="#4338ca" stroke="#4338ca" stroke-width="1"/>
+<line x1="588" y1="604" x2="600" y2="604" stroke="#4338ca" stroke-width="2"/>
+<text x="608" y="608" font-size="10" fill="#1a1a2e">= Composition (owns)</text>
+</svg>
+  </div>
+  <div class="dn" style="background:#eef2ff;border-top-color:#c7d2fe;border-color:#4338ca">
+    <strong style="color:#312e81">Class Diagram Relationships Explained</strong>
+    <strong>Generalization:</strong> Member &amp; Librarian both extend Person — they inherit name, email, phoneNo · <strong>Association class (Loan):</strong> resolves the N:M "Member borrows Book" relationship — Loan stores event details (dates, status, fine) · <strong>Composition (◆):</strong> Book owns BookCopy — if Book is deleted, all its copies are deleted · <strong>1:1 Association:</strong> An overdue Loan generates exactly one Fine
+  </div>
+</div>
+
+</div><!-- end body -->
+<div class="footer"><strong>APEXHUB · CSC 411 Answer Guide</strong><span>Q6 · 15 Marks</span></div>
+</div><!-- end card -->
+
+
+<!-- ══ STUDY PLAN CARD ══ -->
+<div class="card" id="study">
+<div class="qb" style="background:linear-gradient(135deg,#1e3a5f,#4338ca)">
+  <div class="qb-num">📅</div>
+  <div class="qb-text">
+    <div class="qb-title">Exam Study Plan</div>
+    <div class="qb-sub">Day-by-Day Preparation Schedule</div>
+  </div>
+</div>
+<div class="body">
+  <ul class="splan">
+    <li><span class="day">Wed<br>Night</span><strong>Topics 1 &amp; 2 (DFD + ERD):</strong> Re-read the Study Summary for DFDs and ERDs. Practice drawing the Estate Agency Level 1 DFD from scratch without looking — include all 5 processes, 2 entities, 3 data stores, and all flows.</li>
+    <li><span class="day">Thu<br>Morning</span><strong>Topics 3 &amp; 4 (Use Case + Activity):</strong> Study both diagram types. Draw the ATM Use Case diagram from memory — include all actors, use cases, and &lt;&lt;include&gt;&gt;/&lt;&lt;extend&gt;&gt; relationships.</li>
+    <li><span class="day">Thu<br>Evening</span><strong>Topics 5, 6 &amp; 7 (Class + State + Sequence):</strong> Study all three structural/interaction diagrams. Draw the Library Class Diagram from memory — include all classes, attributes, operations, and relationships.</li>
+    <li><span class="day">Fri<br>Morning</span><strong>Theory Topics:</strong> Study this answers document — SDLC 7 steps, 5 System Classifications, 3 Information Systems, System Analysis vs Design importance.</li>
+    <li><span class="day">Fri<br>Evening</span><strong>Full Practice:</strong> Practice all 6 questions from this past paper using your own words. Aim for 15–20 minutes per question. Do NOT copy — explain in your own voice.</li>
+    <li><span class="day">Sat<br>Morning</span><strong>Light Review Only:</strong> Skim diagram notations only. Trust your preparation. You have this. 🎯</li>
+  </ul>
+  <div class="box bg" style="margin-top:18px">
+    <div class="bt">✅ Verdict: Coverage Assessment</div>
+    <strong>8 out of 13 sub-questions</strong> are fully answerable from the Study Summary alone. The theory topics (SDLC, System Classifications, Information Systems) are fully covered in this document. <strong>Read both documents together</strong> and you will be able to confidently answer every question on this paper.
+  </div>
+</div>
+<div class="footer"><strong>APEXHUB · CSC 411 Answer Guide</strong><span>AAUA 2024/2025</span></div>
+</div>
+
+
+<!-- END CARD -->
+<div class="endcard">
+  <h2>All the best on Saturday! 🎯</h2>
+  <p>CSC 411 — Systems Design and Analysis &nbsp;·&nbsp; AAUA 2024/2025</p>
+  <p>Read, understand, and own it.</p>
+  <p style="margin-top:14px;font-size:11px;opacity:.5">Prepared by APEXHUB · All diagrams drawn to standard UML and Elmasri/Navathe notation</p>
+</div>
+
+</div><!-- end shell -->
+</body>
+</html>
